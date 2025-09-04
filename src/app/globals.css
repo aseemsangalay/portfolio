@@ -246,18 +246,18 @@ html {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  
+
   /* Mobile-specific typography adjustments */
   .text-display {
     font-size: clamp(2rem, 10vw, 3.5rem);
     line-height: 1.1;
   }
-  
+
   .text-display-bold {
     font-size: clamp(1.75rem, 8vw, 2.5rem);
     line-height: 1.1;
   }
-  
+
   /* Mobile navigation improvements */
   .mobile-nav-item {
     padding: 0.75rem 1rem;
@@ -266,17 +266,17 @@ html {
     display: flex;
     align-items: center;
   }
-  
+
   /* Better mobile grid spacing */
   .grid-12 {
     gap: 1rem;
   }
-  
+
   /* Mobile project cards */
   .project-card {
     padding: 1.5rem;
   }
-  
+
   /* Mobile contact buttons */
   .contact-button {
     min-height: 48px;
