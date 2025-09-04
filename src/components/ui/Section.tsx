@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode, ElementType } from "react";
 import { motion } from "framer-motion";
+import { ElementType, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionProps {
@@ -11,22 +11,20 @@ interface SectionProps {
   as?: ElementType;
 }
 
-export function Section({
-  children,
-  className,
-  id,
-  as: Component = "section",
-}: SectionProps) {
+export function Section({ children, className, id }: SectionProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      id={id}
+      className={cn("py-24 md:py-32", className)}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1],
+      }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      <Component id={id} className={cn("py-24", className)}>
-        {children}
-      </Component>
+      {children}
     </motion.div>
   );
 }

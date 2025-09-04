@@ -1,48 +1,49 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { getWritings, getReadings } from '@/lib/content';
-import { formatDateShort } from '@/lib/utils';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+import { getWritings, getReadings } from "@/lib/content";
+import { formatDateShort } from "@/lib/utils";
 
 export default function Brain() {
-  const [activeTab, setActiveTab] = useState('writings');
+  const [activeTab, setActiveTab] = useState("writings");
   const writings = getWritings().slice(0, 3);
   const readings = getReadings().slice(0, 3);
 
   return (
     <Section id="brain" className="bg-background">
       <Container>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-display-bold text-foreground mb-4">Brain</h2>
-            <p className="text-body max-w-2xl mx-auto">
-              Thoughts, learnings, and insights from building systems and solving problems.
+            <h2 className="text-display-bold text-foreground mb-6">Brain</h2>
+            <p className="text-body max-w-2xl mx-auto leading-relaxed">
+              Thoughts, learnings, and insights from building systems and
+              solving problems.
             </p>
           </motion.div>
 
           {/* Tab Navigation */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-12 md:mb-16">
             <div className="flex bg-hairline rounded-full p-1">
               {[
-                { id: 'writings', label: 'Writings' },
-                { id: 'readings', label: 'Readings' },
+                { id: "writings", label: "Writings" },
+                { id: "readings", label: "Readings" },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`px-6 md:px-8 py-3 text-sm font-medium rounded-full transition-all duration-300 min-h-[44px] ${
                     activeTab === tab.id
-                      ? 'bg-background text-foreground shadow-sm'
-                      : 'text-subtext hover:text-foreground'
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-subtext hover:text-foreground"
                   }`}
                 >
                   {tab.label}
@@ -58,46 +59,49 @@ export default function Brain() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
             >
-              {activeTab === 'writings' ? (
+              {activeTab === "writings" ? (
                 <div className="space-y-6">
                   {writings.map((writing, index) => (
                     <motion.div
                       key={writing.slug}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="group"
                     >
                       <a
                         href={`/writings/${writing.slug}`}
-                        className="block p-6 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+                        className="block p-6 md:p-8 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500 hover-lift"
                       >
-                        <div className="flex items-start justify-between mb-3">
-                          <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors">
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
+                          <h3 className="text-base md:text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
                             {writing.title}
                           </h3>
-                          <span className="text-xs text-subtext">
+                          <span className="text-xs text-subtext font-medium">
                             {formatDateShort(writing.date)}
                           </span>
                         </div>
-                        <p className="text-card mb-3">
+                        <p className="text-sm md:text-base text-card mb-4 leading-relaxed">
                           {writing.summary}
                         </p>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
                           <span className="text-xs text-subtext">
                             {writing.readingTime}
                           </span>
                           <span className="text-xs text-accent">→</span>
                         </div>
                       </a>
+                      {index < writings.length - 1 && (
+                        <div className="h-px bg-hairline my-6" />
+                      )}
                     </motion.div>
                   ))}
-                  <div className="text-center pt-4">
+                  <div className="text-center pt-8">
                     <a
                       href="/writings"
-                      className="text-sm font-medium text-accent hover:text-foreground transition-colors"
+                      className="text-sm font-medium text-accent hover:text-foreground transition-colors duration-300 underline-animate"
                     >
                       View all writings →
                     </a>
@@ -110,46 +114,49 @@ export default function Brain() {
                       key={reading.slug}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="group"
                     >
                       <a
                         href={reading.link || `/readings/${reading.slug}`}
-                        target={reading.link ? '_blank' : undefined}
-                        rel={reading.link ? 'noopener noreferrer' : undefined}
-                        className="block p-6 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+                        target={reading.link ? "_blank" : undefined}
+                        rel={reading.link ? "noopener noreferrer" : undefined}
+                        className="block p-6 md:p-8 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500 hover-lift"
                       >
-                        <div className="flex items-start justify-between mb-3">
-                          <h3 className="text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors">
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
+                          <h3 className="text-base md:text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
                             {reading.title}
                           </h3>
-                          <span className="text-xs text-subtext">
+                          <span className="text-xs text-subtext font-medium">
                             {formatDateShort(reading.date)}
                           </span>
                         </div>
                         {reading.author && (
-                          <p className="text-sm text-subtext mb-2">
+                          <p className="text-sm text-subtext mb-3 font-medium">
                             by {reading.author}
                           </p>
                         )}
-                        <p className="text-card mb-3">
+                        <p className="text-sm md:text-base text-card mb-4 leading-relaxed">
                           {reading.summary}
                         </p>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
                           {reading.tags[0] && (
-                            <span className="text-xs px-2 py-1 bg-hairline text-subtext rounded-sm">
+                            <span className="text-xs px-2 py-1 bg-hairline text-subtext rounded-full">
                               {reading.tags[0]}
                             </span>
                           )}
                           <span className="text-xs text-accent">→</span>
                         </div>
                       </a>
+                      {index < readings.length - 1 && (
+                        <div className="h-px bg-hairline my-6" />
+                      )}
                     </motion.div>
                   ))}
-                  <div className="text-center pt-4">
+                  <div className="text-center pt-8">
                     <a
                       href="/readings"
-                      className="text-sm font-medium text-accent hover:text-foreground transition-colors"
+                      className="text-sm font-medium text-accent hover:text-foreground transition-colors duration-300 underline-animate"
                     >
                       View all readings →
                     </a>

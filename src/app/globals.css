@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FAFAFA;
-  --foreground: #0A0A0A;
-  --subtext: #6B7280;
-  --accent: #6366F1;
-  --accent-light: #A5B4FC;
-  --hairline: rgba(10, 10, 10, 0.04);
-  --glow: rgba(99, 102, 241, 0.1);
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --subtext: #6b7280;
+  --accent: #2d2d2d;
+  --accent-light: #525252;
+  --hairline: rgba(10, 10, 10, 0.03);
+  --glow: rgba(45, 45, 45, 0.05);
+  --border: rgba(10, 10, 10, 0.08);
 }
 
 @theme inline {
@@ -18,6 +19,7 @@
   --color-accent-light: var(--accent-light);
   --color-hairline: var(--hairline);
   --color-glow: var(--glow);
+  --color-border: var(--border);
   --font-display: var(--font-space-grotesk);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-newsreader);
@@ -45,7 +47,7 @@ body {
 /* Typography scale */
 .text-display {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -54,7 +56,7 @@ body {
 
 .text-display-bold {
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -62,7 +64,7 @@ body {
 
 .text-subtitle {
   font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 3vw, 1.25rem);
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: 0.02em;
@@ -78,31 +80,33 @@ body {
 }
 
 .text-body {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.7;
   color: var(--subtext);
   font-weight: 400;
 }
 
 .text-card {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   line-height: 1.6;
   color: var(--subtext);
   font-weight: 400;
 }
 
-/* Background grid - very subtle */
+/* Background grid - subtle but visible */
 .bg-grid {
-  background-image: 
-    linear-gradient(rgba(10, 10, 10, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 10, 10, 0.02) 1px, transparent 1px);
-  background-size: 32px 32px;
-  animation: gridShift 20s ease-in-out infinite;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  will-change: transform;
 }
 
-@keyframes gridShift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(2px, 2px); }
+.parallax-grid {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  will-change: transform;
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Soft gradient glow */
@@ -111,7 +115,7 @@ body {
 }
 
 .gradient-glow::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -125,20 +129,160 @@ body {
 }
 
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* Vignette effect */
 .vignette::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.01) 100%);
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.01) 100%
+  );
   pointer-events: none;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Elegant underline animation */
+.underline-animate {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-animate::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+}
+
+/* Smooth section reveals */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.hover-sharpen {
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-sharpen:hover {
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .parallax-grid {
+    /* Reduce parallax intensity on mobile for better performance */
+    transform: scale(1.1);
+  }
+
+  .hover-lift:hover {
+    /* Disable hover effects on mobile */
+    transform: none;
+  }
+
+  .hover-sharpen:hover {
+    /* Disable hover effects on mobile */
+    filter: none;
+  }
+
+  /* Improve touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile spacing */
+  .py-24 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .py-32 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Mobile-specific typography adjustments */
+  .text-display {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    line-height: 1.1;
+  }
+  
+  .text-display-bold {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.1;
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-nav-item {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Better mobile grid spacing */
+  .grid-12 {
+    gap: 1rem;
+  }
+  
+  /* Mobile project cards */
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  /* Mobile contact buttons */
+  .contact-button {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
 }
 
 /* Accessibility */
@@ -147,6 +291,10 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 
