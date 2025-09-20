@@ -6,11 +6,9 @@ import { GridContainer } from "./Container";
 
 interface ProjectSpreadProps {
   project: Project;
-  index: number;
 }
 
-export function ProjectSpread({ project, index }: ProjectSpreadProps) {
-  const isEven = index % 2 === 0;
+export function ProjectSpread({ project }: ProjectSpreadProps) {
 
   return (
     <motion.div
@@ -25,12 +23,8 @@ export function ProjectSpread({ project, index }: ProjectSpreadProps) {
       className="mb-32"
     >
       <GridContainer className="items-center">
-        {/* Project content - alternating layout */}
-        <div
-          className={`col-span-12 md:col-span-6 order-2 md:order-1 ${
-            isEven ? "" : "md:col-start-7"
-          }`}
-        >
+        {/* Project content - consistent layout */}
+        <div className="col-span-12 md:col-span-6 order-2 md:order-1 md:col-start-1">
           <div className="space-y-6">
             <div className="text-sm font-medium text-accent uppercase tracking-wider">
               {project.tags[0]}
@@ -89,11 +83,7 @@ export function ProjectSpread({ project, index }: ProjectSpreadProps) {
         </div>
 
         {/* Project image */}
-        <div
-          className={`col-span-12 md:col-span-6 order-1 md:order-2 ${
-            isEven ? "md:col-start-7" : "md:col-start-1"
-          }`}
-        >
+        <div className="col-span-12 md:col-span-6 order-1 md:order-2 md:col-start-7">
           <motion.div
             className="aspect-[4/3] bg-hairline border border-hairline rounded-xl overflow-hidden hover-sharpen hover-lift"
             whileHover={{
