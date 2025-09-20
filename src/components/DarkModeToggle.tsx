@@ -9,13 +9,13 @@ export default function DarkModeToggle() {
 
   useEffect(() => {
     setMounted(true);
-
+    
     // Check for saved theme preference or default to 'dark'
     const savedTheme = localStorage.getItem("theme");
-
+    
     if (savedTheme === "light") {
       setIsDark(false);
-      document.documentElement.removeAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", "light");
     } else {
       // Default to dark mode
       setIsDark(true);
@@ -30,9 +30,11 @@ export default function DarkModeToggle() {
     if (newTheme) {
       document.documentElement.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
+      console.log("Switched to dark mode");
     } else {
-      document.documentElement.removeAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
+      console.log("Switched to light mode");
     }
   };
 

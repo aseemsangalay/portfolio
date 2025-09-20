@@ -2,33 +2,33 @@
 
 :root {
   /* Default to dark mode - Enhanced contrast system */
-  --background: #0a0a0a;           /* Pure dark background */
-  --surface: #111111;             /* Card/surface elevation */
-  --surface-hover: #1a1a1a;       /* Hover state */
-  --foreground: #ffffff;          /* Primary text - strong white */
-  --foreground-muted: #e5e5e5;     /* Secondary text */
-  --subtext: #a3a3a3;             /* Tertiary text - better contrast */
-  --accent: #ffffff;              /* Links, buttons - pure white */
-  --accent-hover: #f5f5f5;        /* Hover state */
-  --hairline: rgba(255, 255, 255, 0.08);  /* Borders - more visible */
-  --border: rgba(255, 255, 255, 0.15);    /* Stronger borders */
-  --glow: rgba(255, 255, 255, 0.03);      /* Subtle glow */
-  --shadow: rgba(0, 0, 0, 0.3);           /* Card shadows */
+  --background: #0a0a0a; /* Pure dark background */
+  --surface: #111111; /* Card/surface elevation */
+  --surface-hover: #1a1a1a; /* Hover state */
+  --foreground: #ffffff; /* Primary text - strong white */
+  --foreground-muted: #e5e5e5; /* Secondary text */
+  --subtext: #a3a3a3; /* Tertiary text - better contrast */
+  --accent: #ffffff; /* Links, buttons - pure white */
+  --accent-hover: #f5f5f5; /* Hover state */
+  --hairline: rgba(255, 255, 255, 0.08); /* Borders - more visible */
+  --border: rgba(255, 255, 255, 0.15); /* Stronger borders */
+  --glow: rgba(255, 255, 255, 0.03); /* Subtle glow */
+  --shadow: rgba(0, 0, 0, 0.3); /* Card shadows */
 }
 
 [data-theme="light"] {
-  --background: #fafafa;           /* Clean light background */
-  --surface: #ffffff;             /* Card/surface elevation */
-  --surface-hover: #f8f8f8;       /* Hover state */
-  --foreground: #0a0a0a;          /* Primary text - strong black */
-  --foreground-muted: #1a1a1a;    /* Secondary text */
-  --subtext: #525252;             /* Tertiary text */
-  --accent: #0a0a0a;              /* Links, buttons - pure black */
-  --accent-hover: #1a1a1a;        /* Hover state */
+  --background: #fafafa; /* Clean light background */
+  --surface: #ffffff; /* Card/surface elevation */
+  --surface-hover: #f8f8f8; /* Hover state */
+  --foreground: #0a0a0a; /* Primary text - strong black */
+  --foreground-muted: #1a1a1a; /* Secondary text */
+  --subtext: #525252; /* Tertiary text */
+  --accent: #0a0a0a; /* Links, buttons - pure black */
+  --accent-hover: #1a1a1a; /* Hover state */
   --hairline: rgba(0, 0, 0, 0.08); /* Borders */
-  --border: rgba(0, 0, 0, 0.12);   /* Stronger borders */
-  --glow: rgba(0, 0, 0, 0.02);     /* Subtle glow */
-  --shadow: rgba(0, 0, 0, 0.1);   /* Card shadows */
+  --border: rgba(0, 0, 0, 0.12); /* Stronger borders */
+  --glow: rgba(0, 0, 0, 0.02); /* Subtle glow */
+  --shadow: rgba(0, 0, 0, 0.1); /* Card shadows */
 }
 
 @theme inline {
