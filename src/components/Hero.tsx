@@ -58,7 +58,9 @@ function BreathingRings({ className = "" }: { className?: string }) {
 // Paper Texture Component
 function PaperTexture({ className = "" }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 pointer-events-none paper-texture ${className}`} />
+    <div
+      className={`absolute inset-0 pointer-events-none paper-texture ${className}`}
+    />
   );
 }
 
@@ -78,7 +80,6 @@ export default function Hero() {
 
   const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
   const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
-
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -112,7 +113,7 @@ export default function Hero() {
       ref={ref}
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ backgroundColor: "#F7F7F5" }}
+      style={{ backgroundColor: "#0F1115" }}
     >
       <PaperTexture />
 
@@ -169,7 +170,7 @@ export default function Hero() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F7F5] to-transparent pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F1115] to-transparent pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}

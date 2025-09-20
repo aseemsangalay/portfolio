@@ -1,7 +1,8 @@
 export const siteConfig = {
   name: "Aseem Sangalay",
   tagline: "Engineer · Builder · Systems Thinker",
-  description: "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
+  description:
+    "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
   url: "https://aseemsangalay.com",
   ogImage: "https://aseemsangalay.com/og.jpg",
   links: {
@@ -22,4 +23,3 @@ export const siteConfig = {
     { name: "Contact", href: "#contact" },
   ],
 } as const;
-

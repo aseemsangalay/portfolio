@@ -21,7 +21,8 @@ export default function Work() {
               Work Experience
             </h2>
             <p className="text-body text-subtext leading-relaxed max-w-2xl">
-              Building products and systems that scale, with a focus on impact and growth.
+              Building products and systems that scale, with a focus on impact
+              and growth.
             </p>
           </motion.div>
 
@@ -40,7 +41,7 @@ export default function Work() {
                 className="border-l-2 border-hairline pl-8 relative"
               >
                 <div className="absolute -left-2 top-0 w-4 h-4 bg-background border-2 border-hairline rounded-full" />
-                
+
                 <div className="space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <div>
@@ -66,10 +67,13 @@ export default function Work() {
                       {work.period}
                     </span>
                   </div>
-                  
+
                   <ul className="space-y-2">
                     {work.impacts.map((impact, impactIndex) => (
-                      <li key={impactIndex} className="text-body text-subtext leading-relaxed flex items-start">
+                      <li
+                        key={impactIndex}
+                        className="text-body text-subtext leading-relaxed flex items-start"
+                      >
                         <span className="text-accent mr-2 mt-1">•</span>
                         {impact}
                       </li>

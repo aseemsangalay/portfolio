@@ -1,19 +1,23 @@
-'use client';
+"use client";
 
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { ProjectSpread } from '@/components/ui/ProjectSpread';
-import { getProjects } from '@/lib/content';
-import { useEffect, useState } from 'react';
-import { Project } from '@/types/content';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+import { ProjectSpread } from "@/components/ui/ProjectSpread";
+import { getProjects } from "@/lib/content";
+import { useEffect, useState } from "react";
+import { Project } from "@/types/content";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CaseEssays() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    setProjects(getProjects().filter(project => project.featured).slice(0, 2));
+    setProjects(
+      getProjects()
+        .filter((project) => project.featured)
+        .slice(0, 2)
+    );
   }, []);
 
   return (
@@ -24,7 +28,8 @@ export default function CaseEssays() {
             Featured Projects
           </h2>
           <p className="text-body text-subtext text-center max-w-2xl mx-auto">
-            Case studies of systems I&apos;ve built, problems I&apos;ve solved, and impact I&apos;ve created.
+            Case studies of systems I&apos;ve built, problems I&apos;ve solved,
+            and impact I&apos;ve created.
           </p>
         </div>
 
@@ -52,4 +57,3 @@ export default function CaseEssays() {
     </Section>
   );
 }
-

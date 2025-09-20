@@ -5,12 +5,14 @@
 This portfolio has been upgraded with the following improvements:
 
 ### 1. Hero Section
+
 - **Fixed tagline**: Removed dynamic cycling, now shows single static tagline
 - **Typography**: Improved spacing and alignment (8-12px gap mobile, 16-20px desktop)
 - **Background**: Updated to off-white `#F7F7F5` with paper texture
 - **Animation**: Simplified to fade-up only (120-160ms)
 
 ### 2. Theme & Dark Mode
+
 - **Colors**: Softened from pure white to off-white `#F7F7F5`
 - **Dark Mode**: Added toggle with `#0F1115` background and `#E6E6E6` text
 - **Grid**: Strengthened hairlines to `border-neutral-200/50`
@@ -18,17 +20,20 @@ This portfolio has been upgraded with the following improvements:
 - **Respect**: Honors `prefers-color-scheme`
 
 ### 3. Projects Section
+
 - **Home**: Shows exactly 2 featured projects
 - **Link**: Added "View all projects →" to `/projects`
 - **Layout**: Consistent left text / right image spreads
 
 ### 4. Work Experience
+
 - **New Section**: Added after About, before Projects
 - **Timeline**: Company, role, period, impact bullets
 - **Data**: Located in `src/data/work.ts`
 - **Link**: Optional "View résumé →" placeholder
 
 ### 5. UX Polish
+
 - **Spacing**: Consistent scale (4/8/12/16/24/32/48/64)
 - **Container**: Max-width `1100px` with `px-6 md:px-8`
 - **Navigation**: Sticky with scroll-spy, reduced hover noise
@@ -36,6 +41,7 @@ This portfolio has been upgraded with the following improvements:
 - **Accessibility**: Full `prefers-reduced-motion` support
 
 ### 6. SEO & Monitoring
+
 - **Metadata**: Updated base URL to Vercel domain
 - **Sitemap**: Auto-generated with all routes
 - **Robots**: Proper crawling rules
@@ -44,6 +50,7 @@ This portfolio has been upgraded with the following improvements:
 - **Health**: `/api/health` endpoint for uptime checks
 
 ### 7. Content Structure
+
 - **About**: Appears immediately after Hero
 - **Library**: Shows 3 latest writings + 3 readings
 - **MDX**: All routes working (`/writings`, `/readings`, etc.)
@@ -78,7 +85,9 @@ src/components/Footer.tsx            # Added CTA link
 ## 🎨 Content Management
 
 ### Projects
+
 Edit `src/lib/content.ts` to update project data:
+
 ```typescript
 export function getProjects(): Project[] {
   return [
@@ -87,13 +96,15 @@ export function getProjects(): Project[] {
       title: "Project Title",
       featured: true, // Shows on home page
       // ... other fields
-    }
+    },
   ];
 }
 ```
 
 ### Work Experience
+
 Edit `src/data/work.ts` to update work history:
+
 ```typescript
 export const workExperiences: WorkExperience[] = [
   {
@@ -102,20 +113,24 @@ export const workExperiences: WorkExperience[] = [
     period: "2020 - Present",
     impacts: [
       "Achieved 40% performance improvement",
-      "Led team of 5 engineers"
+      "Led team of 5 engineers",
     ],
-    link: "https://company.com" // Optional
-  }
+    link: "https://company.com", // Optional
+  },
 ];
 ```
 
 ### Writings & Readings
+
 Add MDX files to:
+
 - `src/content/writings/` - Blog posts
 - `src/content/readings/` - Book/article notes
 
 ### Site Configuration
+
 Edit `src/lib/site-config.ts` for:
+
 - Personal information
 - Social links
 - Navigation items
@@ -124,6 +139,7 @@ Edit `src/lib/site-config.ts` for:
 ## 🚀 Deployment
 
 The site is ready for Vercel deployment with:
+
 - ✅ All pages building successfully
 - ✅ SEO optimized
 - ✅ Analytics ready (set `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`)

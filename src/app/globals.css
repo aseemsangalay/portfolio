@@ -1,30 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f7f5;
-  --foreground: #0a0a0a;
-  --subtext: #6b7280;
-  --accent: #2d2d2d;
-  --accent-light: #525252;
-  --hairline: rgba(0, 0, 0, 0.08);
-  --glow: rgba(45, 45, 45, 0.05);
-  --border: rgba(0, 0, 0, 0.12);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f1115;
-    --foreground: #e6e6e6;
-    --subtext: #9ca3af;
-    --accent: #d1d5db;
-    --accent-light: #f3f4f6;
-    --hairline: rgba(255, 255, 255, 0.06);
-    --glow: rgba(255, 255, 255, 0.05);
-    --border: rgba(255, 255, 255, 0.12);
-  }
-}
-
-[data-theme="dark"] {
+  /* Default to dark mode */
   --background: #0f1115;
   --foreground: #e6e6e6;
   --subtext: #9ca3af;
@@ -33,6 +10,17 @@
   --hairline: rgba(255, 255, 255, 0.06);
   --glow: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] {
+  --background: #f7f7f5;
+  --foreground: #0a0a0a;
+  --subtext: #6b7280;
+  --accent: #2d2d2d;
+  --accent-light: #525252;
+  --hairline: rgba(0, 0, 0, 0.08);
+  --glow: rgba(45, 45, 45, 0.05);
+  --border: rgba(0, 0, 0, 0.12);
 }
 
 @theme inline {
@@ -117,58 +105,55 @@ body {
   font-weight: 400;
 }
 
-/* Background grid - subtle but visible */
+/* Background grid - default dark mode */
 .bg-grid {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
   will-change: transform;
 }
 
 .parallax-grid {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
   will-change: transform;
   transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode grid */
-@media (prefers-color-scheme: dark) {
-  .bg-grid,
-  .parallax-grid {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  }
+/* Light mode grid */
+[data-theme="light"] .bg-grid,
+[data-theme="light"] .parallax-grid {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
 }
 
-[data-theme="dark"] .bg-grid,
-[data-theme="dark"] .parallax-grid {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-}
-
-/* Paper texture */
+/* Paper texture - default dark mode */
 .paper-texture {
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.15) 1px, transparent 0),
-    radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.1) 1px, transparent 0);
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 0
+    ),
+    radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
   background-size: 20px 20px, 40px 40px;
   opacity: 0.03;
 }
 
-@media (prefers-color-scheme: dark) {
-  .paper-texture {
-    background-image: 
-      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0),
-      radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
-  }
-}
-
-[data-theme="dark"] .paper-texture {
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0),
-    radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+/* Light mode paper texture */
+[data-theme="light"] .paper-texture {
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 0
+    ),
+    radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.1) 1px, transparent 0);
 }
 
 /* Soft gradient glow */
