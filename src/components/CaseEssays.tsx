@@ -34,8 +34,8 @@ export default function CaseEssays() {
         </div>
 
         <div className="space-y-24">
-          {projects.map((project, index) => (
-            <ProjectSpread key={project.slug} project={project} index={index} />
+          {projects.map((project) => (
+            <ProjectSpread key={project.slug} project={project} />
           ))}
         </div>
 
