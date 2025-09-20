@@ -16,7 +16,7 @@ export function ProjectSpread({ project }: ProjectSpreadProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.8,
-        delay: index * 0.2,
+        delay: 0.2,
         ease: [0.4, 0, 0.2, 1],
       }}
       viewport={{ once: true }}
