@@ -6,17 +6,12 @@ import {
   useTransform,
   useMotionValue,
   useSpring,
-  AnimatePresence,
 } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { siteConfig } from "@/lib/site-config";
 
-// Cycling taglines
-const taglines = [
-  "Engineer · Builder · Systems Thinker",
-  "Reader · Writer · Founder",
-  "Clarity · Systems · Leverage",
-];
+// Static tagline
+const tagline = "Engineer · Builder · Systems Thinker";
 
 // Breathing Rings Component
 function BreathingRings({ className = "" }: { className?: string }) {
@@ -63,16 +58,7 @@ function BreathingRings({ className = "" }: { className?: string }) {
 // Paper Texture Component
 function PaperTexture({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`absolute inset-0 pointer-events-none ${className}`}
-      style={{
-        backgroundImage: `
-          radial-gradient(circle at 1px 1px, rgba(0,0,0,0.15) 1px, transparent 0)
-        `,
-        backgroundSize: "20px 20px",
-        opacity: 0.03,
-      }}
-    />
+    <div className={`absolute inset-0 pointer-events-none paper-texture ${className}`} />
   );
 }
 
@@ -80,7 +66,6 @@ export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const spiralRef = useRef<HTMLDivElement>(null);
-  const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -94,14 +79,6 @@ export default function Hero() {
   const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
   const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
 
-  // Cycle through taglines
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTaglineIndex((prev) => (prev + 1) % taglines.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -135,7 +112,7 @@ export default function Hero() {
       ref={ref}
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ backgroundColor: "#FAFAFA" }}
+      style={{ backgroundColor: "#F7F7F5" }}
     >
       <PaperTexture />
 
@@ -169,53 +146,30 @@ export default function Hero() {
         className="text-center z-10 max-w-6xl mx-auto px-8"
       >
         <motion.h1
-          initial={{ opacity: 0, y: 40, letterSpacing: "0.1em" }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            letterSpacing: "-0.03em",
-          }}
-          transition={{
-            duration: 1.4,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            letterSpacing: { delay: 0.8, duration: 0.8 },
-          }}
-          className="text-6xl md:text-7xl font-bold mb-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-3 md:mb-5"
           style={{
             color: "#0B0B0B",
             fontFamily: "var(--font-inter), system-ui, sans-serif",
-            fontWeight: 700,
           }}
         >
           {siteConfig.name}
         </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-          className="flex items-center justify-center"
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="text-base md:text-lg text-neutral-500 font-medium"
         >
-          <div className="relative h-8">
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentTaglineIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="text-lg md:text-xl tracking-wide absolute inset-0 flex items-center justify-center"
-                style={{ color: "#6B7280" }}
-              >
-                {taglines[currentTaglineIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </div>
-        </motion.div>
+          {tagline}
+        </motion.p>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FAFAFA] to-transparent pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F7F5] to-transparent pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}

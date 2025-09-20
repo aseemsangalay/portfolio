@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import WhatIDo from "@/components/WhatIDo";
+import Work from "@/components/Work";
 import CaseEssays from "@/components/CaseEssays";
 import Brain from "@/components/Brain";
 import Contact from "@/components/Contact";
@@ -13,6 +14,7 @@ export default function Home() {
       <main id="main-content" className="min-h-screen">
         <Hero />
         <WhatIDo />
+        <Work />
         <CaseEssays />
         <Brain />
         <Contact />

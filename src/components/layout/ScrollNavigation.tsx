@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "@/components/ui/Container";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 export default function ScrollNavigation() {
   const [isVisible, setIsVisible] = useState(false);
@@ -70,23 +71,26 @@ export default function ScrollNavigation() {
               </Link>
 
               {/* Desktop Navigation */}
-              <ul className="hidden md:flex items-center space-x-8">
-                {siteConfig.navigation.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className={`text-sm font-medium transition-colors duration-300 underline-animate px-2 py-1 rounded-md ${
-                        activeSection === item.href.replace("#", "") ||
-                        (item.href === "/" && activeSection === "home")
-                          ? "text-accent"
-                          : "text-subtext hover:text-foreground"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="hidden md:flex items-center space-x-8">
+                <ul className="flex items-center space-x-8">
+                  {siteConfig.navigation.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className={`text-sm font-medium transition-colors duration-300 underline-animate px-2 py-1 rounded-md ${
+                          activeSection === item.href.replace("#", "") ||
+                          (item.href === "/" && activeSection === "home")
+                            ? "text-accent"
+                            : "text-subtext hover:text-foreground"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <DarkModeToggle />
+              </div>
 
               {/* Mobile Menu Button */}
               <button

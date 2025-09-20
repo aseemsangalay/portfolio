@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://aseemsangalay.com/sitemap.xml",
+    sitemap: "https://aseemsangalay.vercel.app/sitemap.xml",
   };
 }

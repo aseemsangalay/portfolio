@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Aseem Sangalay - Engineer · Builder · Systems Thinker";
+export const alt = "Aseem Sangalay | Engineer · Builder · Systems Thinker";
 export const size = {
   width: 1200,
   height: 630,
@@ -15,7 +15,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: "white",
+          background: "#F7F7F5",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -27,24 +27,38 @@ export default async function Image() {
       >
         <div
           style={{
-            fontSize: 72,
-            fontWeight: 700,
-            color: "black",
-            marginBottom: 24,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             textAlign: "center",
+            maxWidth: "800px",
+            padding: "0 40px",
           }}
         >
-          Aseem Sangalay
-        </div>
-        <div
-          style={{
-            fontSize: 32,
-            color: "#666",
-            textAlign: "center",
-            fontWeight: 300,
-          }}
-        >
-          Engineer · Builder · Systems Thinker
+          <h1
+            style={{
+              fontSize: "72px",
+              fontWeight: "700",
+              color: "#0A0A0A",
+              margin: "0 0 16px 0",
+              lineHeight: "1.1",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Aseem Sangalay
+          </h1>
+          <p
+            style={{
+              fontSize: "24px",
+              fontWeight: "500",
+              color: "#6B7280",
+              margin: "0",
+              lineHeight: "1.4",
+            }}
+          >
+            Engineer · Builder · Systems Thinker
+          </p>
         </div>
       </div>
     ),
@@ -53,4 +67,3 @@ export default async function Image() {
     }
   );
 }
-

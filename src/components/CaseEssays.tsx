@@ -6,12 +6,14 @@ import { ProjectSpread } from '@/components/ui/ProjectSpread';
 import { getProjects } from '@/lib/content';
 import { useEffect, useState } from 'react';
 import { Project } from '@/types/content';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function CaseEssays() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    setProjects(getProjects().filter(project => project.featured));
+    setProjects(getProjects().filter(project => project.featured).slice(0, 2));
   }, []);
 
   return (
@@ -31,6 +33,21 @@ export default function CaseEssays() {
             <ProjectSpread key={project.slug} project={project} index={index} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <Link
+            href="/projects"
+            className="inline-flex items-center text-sm font-medium text-accent hover:text-foreground transition-colors duration-300 underline-animate"
+          >
+            View all projects →
+          </Link>
+        </motion.div>
       </Container>
     </Section>
   );
