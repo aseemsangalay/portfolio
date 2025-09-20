@@ -4,9 +4,15 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { ProjectSpread } from '@/components/ui/ProjectSpread';
 import { getProjects } from '@/lib/content';
+import { useEffect, useState } from 'react';
+import { Project } from '@/types/content';
 
 export default function CaseEssays() {
-  const projects = getProjects().filter(project => project.featured);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    setProjects(getProjects().filter(project => project.featured));
+  }, []);
 
   return (
     <Section id="projects" className="bg-background">

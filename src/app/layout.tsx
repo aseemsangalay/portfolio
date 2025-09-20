@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -21,6 +22,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aseemsangalay.com"),
   title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
   description:
     "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
@@ -41,6 +43,8 @@ export const metadata: Metadata = {
       "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
     type: "website",
     locale: "en_US",
+    url: "https://aseemsangalay.com",
+    siteName: "Aseem Sangalay",
   },
   twitter: {
     card: "summary_large_image",
@@ -68,6 +72,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );

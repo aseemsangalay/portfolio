@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getWritings, getReadings } from "@/lib/content";
 import { formatDateShort } from "@/lib/utils";
+import { Writing, Reading } from "@/types/content";
+import Link from "next/link";
 
 export default function Brain() {
   const [activeTab, setActiveTab] = useState("writings");
-  const writings = getWritings().slice(0, 3);
-  const readings = getReadings().slice(0, 3);
+  const [writings, setWritings] = useState<Writing[]>([]);
+  const [readings, setReadings] = useState<Reading[]>([]);
+
+  useEffect(() => {
+    setWritings(getWritings().slice(0, 3));
+    setReadings(getReadings().slice(0, 3));
+  }, []);
 
   return (
     <Section id="brain" className="bg-background">
@@ -99,12 +106,12 @@ export default function Brain() {
                     </motion.div>
                   ))}
                   <div className="text-center pt-8">
-                    <a
+                    <Link
                       href="/writings"
                       className="text-sm font-medium text-accent hover:text-foreground transition-colors duration-300 underline-animate"
                     >
                       View all writings →
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ) : (
