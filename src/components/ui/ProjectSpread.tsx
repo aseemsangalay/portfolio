@@ -24,11 +24,11 @@ export function ProjectSpread({ project, index }: ProjectSpreadProps) {
       viewport={{ once: true }}
       className="mb-32"
     >
-      <GridContainer>
+      <GridContainer className="items-center">
         {/* Project content - alternating layout */}
         <div
-          className={`col-span-12 md:col-span-5 order-2 md:order-1 ${
-            isEven ? "" : "md:col-start-8"
+          className={`col-span-12 md:col-span-6 order-2 md:order-1 ${
+            isEven ? "" : "md:col-start-7"
           }`}
         >
           <div className="space-y-6">
