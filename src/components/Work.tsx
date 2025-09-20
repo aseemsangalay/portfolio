@@ -38,7 +38,7 @@ export default function Work() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
                 viewport={{ once: true }}
-                className="border-l-2 border-hairline pl-8 relative"
+                className="border-l-2 border-hairline pl-8 relative bg-surface/30 rounded-r-lg p-6 -ml-6"
               >
                 <div className="absolute -left-2 top-0 w-4 h-4 bg-background border-2 border-hairline rounded-full" />
 

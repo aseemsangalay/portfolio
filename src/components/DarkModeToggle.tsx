@@ -9,10 +9,10 @@ export default function DarkModeToggle() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     // Check for saved theme preference or default to 'dark'
     const savedTheme = localStorage.getItem("theme");
-    
+
     if (savedTheme === "light") {
       setIsDark(false);
       document.documentElement.removeAttribute("data-theme");

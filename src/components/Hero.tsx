@@ -112,20 +112,16 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ backgroundColor: "#0F1115" }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background"
     >
       <PaperTexture />
 
       <motion.div
         ref={gridRef}
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none parallax-grid"
         style={{
           x: springX,
           y: springY,
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -135,7 +131,7 @@ export default function Hero() {
       <motion.div
         ref={spiralRef}
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        style={{ color: "#0B0B0B" }}
+        style={{ color: "var(--foreground)" }}
       >
         <BreathingRings className="w-96 h-96 md:w-[500px] md:h-[500px]" />
       </motion.div>
@@ -150,9 +146,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-3 md:mb-5"
+          className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-3 md:mb-5 text-foreground"
           style={{
-            color: "#0B0B0B",
             fontFamily: "var(--font-inter), system-ui, sans-serif",
           }}
         >
@@ -163,14 +158,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-base md:text-lg text-neutral-500 font-medium"
+          className="text-base md:text-lg text-foreground-muted font-medium"
         >
           {tagline}
         </motion.p>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F1115] to-transparent pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}

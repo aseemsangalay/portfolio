@@ -40,7 +40,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="px-6 py-3 bg-background border border-hairline rounded-full text-sm font-medium text-foreground hover:border-accent hover:bg-accent/5 transition-all duration-300 hover-lift min-h-[44px] flex items-center justify-center">
+                  <div className="px-6 py-3 bg-surface border border-hairline rounded-full text-sm font-medium text-foreground hover:bg-surface-hover hover:border-border transition-all duration-300 hover-lift min-h-[44px] flex items-center justify-center">
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                   </div>
                 </motion.a>

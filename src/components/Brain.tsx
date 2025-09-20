@@ -80,7 +80,7 @@ export default function Brain() {
                     >
                       <a
                         href={`/writings/${writing.slug}`}
-                        className="block p-6 md:p-8 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500 hover-lift"
+                        className="block p-6 md:p-8 bg-surface border border-hairline rounded-xl hover:bg-surface-hover hover:border-border hover:shadow-lg hover:shadow-shadow transition-all duration-500 hover-lift"
                       >
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
                           <h3 className="text-base md:text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
@@ -128,7 +128,7 @@ export default function Brain() {
                         href={reading.link || `/readings/${reading.slug}`}
                         target={reading.link ? "_blank" : undefined}
                         rel={reading.link ? "noopener noreferrer" : undefined}
-                        className="block p-6 md:p-8 bg-background border border-hairline rounded-xl hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500 hover-lift"
+                        className="block p-6 md:p-8 bg-surface border border-hairline rounded-xl hover:bg-surface-hover hover:border-border hover:shadow-lg hover:shadow-shadow transition-all duration-500 hover-lift"
                       >
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
                           <h3 className="text-base md:text-lg font-display font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
