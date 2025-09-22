@@ -4,6 +4,7 @@ import { getWritings } from "@/lib/content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
+import MdxClient from "@/components/MdxClient";
 
 interface WritingPageProps {
   params: Promise<{
@@ -26,6 +27,8 @@ export default async function WritingPage({ params }: WritingPageProps) {
   if (!writing) {
     notFound();
   }
+
+  const isMdxBacked = slug === "what-2-years-in-tech-taught-me-about-scaling";
 
   return (
     <main className="min-h-screen bg-background">
@@ -69,11 +72,17 @@ export default async function WritingPage({ params }: WritingPageProps) {
             </div>
 
             {/* Article content */}
-            <div className="prose prose-lg max-w-none">
-              <div className="text-body text-subtext leading-relaxed whitespace-pre-line">
-                {writing.content || "Content coming soon..."}
+            {isMdxBacked ? (
+              <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold">
+                <MdxClient slug={slug} />
+              </article>
+            ) : (
+              <div className="prose prose-lg max-w-none">
+                <div className="text-body text-subtext leading-relaxed whitespace-pre-line">
+                  {writing.content || "Content coming soon..."}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </Container>
       </Section>
