@@ -9,7 +9,6 @@ interface ProjectSpreadProps {
 }
 
 export function ProjectSpread({ project }: ProjectSpreadProps) {
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

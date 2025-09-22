@@ -64,7 +64,8 @@ body {
 
 /* Smooth theme transitions for all elements */
 * {
-  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+  transition: background-color 0.6s ease, color 0.6s ease,
+    border-color 0.6s ease;
 }
 
 /* Swiss grid system */

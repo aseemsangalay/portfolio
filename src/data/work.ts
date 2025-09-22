@@ -37,3 +37,4 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
 ];
+

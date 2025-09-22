@@ -162,3 +162,4 @@ The site is ready for Vercel deployment with:
 3. **Content**: Update projects, work, and MDX files
 4. **Custom Domain**: Configure in Vercel dashboard
 5. **Monitor**: Use `/api/health` for uptime checks
+
