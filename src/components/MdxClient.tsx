@@ -19,7 +19,9 @@ export default function MdxClient({ slug }: MdxClientProps) {
       let mod: { default: MDXComponentType };
       switch (slug) {
         case "what-2-years-in-tech-taught-me-about-scaling":
-          mod = (await import("@/content/blog/what-2-years-in-tech-taught-me-about-scaling.mdx")) as unknown as {
+          mod = (await import(
+            "@/content/blog/what-2-years-in-tech-taught-me-about-scaling.mdx"
+          )) as unknown as {
             default: MDXComponentType;
           };
           break;

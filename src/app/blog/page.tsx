@@ -34,12 +34,16 @@ export default function BlogIndexPage() {
             <div className="mb-16">
               <h1 className="text-display-bold text-foreground mb-4">Blog</h1>
               <p className="text-body text-subtext">
-                Thoughts on scaling, engineering systems, and building for velocity.
+                Thoughts on scaling, engineering systems, and building for
+                velocity.
               </p>
             </div>
             <div className="space-y-12">
               {entries.map(({ meta }) => (
-                <article key={meta.slug} className="border-b border-hairline pb-12 last:border-b-0">
+                <article
+                  key={meta.slug}
+                  className="border-b border-hairline pb-12 last:border-b-0"
+                >
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 text-sm text-subtext">
                       <time>{formatDate(meta.date)}</time>
@@ -54,10 +58,15 @@ export default function BlogIndexPage() {
                         {meta.title}
                       </Link>
                     </h2>
-                    <p className="text-body text-subtext leading-relaxed">{meta.description}</p>
+                    <p className="text-body text-subtext leading-relaxed">
+                      {meta.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {meta.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full">
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full"
+                        >
                           {tag}
                         </span>
                       ))}

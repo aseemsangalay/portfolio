@@ -59,11 +59,18 @@ export default async function BlogPostPage({ params }: Props) {
                 <span>•</span>
                 <span>{entry.meta.readingTime ?? ""}</span>
               </div>
-              <h1 className="text-display-bold text-foreground mb-4">{entry.meta.title}</h1>
-              <p className="text-body text-subtext leading-relaxed">{entry.meta.description}</p>
+              <h1 className="text-display-bold text-foreground mb-4">
+                {entry.meta.title}
+              </h1>
+              <p className="text-body text-subtext leading-relaxed">
+                {entry.meta.description}
+              </p>
               <div className="flex flex-wrap gap-2 pt-4">
                 {entry.meta.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full">
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full"
+                  >
                     {tag}
                   </span>
                 ))}
