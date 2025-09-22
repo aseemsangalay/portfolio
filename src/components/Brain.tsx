@@ -15,7 +15,11 @@ export default function Brain() {
   const [readings, setReadings] = useState<Reading[]>([]);
 
   useEffect(() => {
-    setWritings(getWritings().slice(0, 3));
+    const sorted = getWritings()
+      .slice()
+      .sort((a, b) => (a.date < b.date ? 1 : -1))
+      .slice(0, 2);
+    setWritings(sorted);
     setReadings(getReadings().slice(0, 3));
   }, []);
 
@@ -78,7 +82,7 @@ export default function Brain() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="group"
                     >
-                      <a
+                      <Link
                         href={`/writings/${writing.slug}`}
                         className="block p-6 md:p-8 bg-surface border border-hairline rounded-xl hover:bg-surface-hover hover:border-border hover:shadow-lg hover:shadow-shadow transition-all duration-500 hover-lift"
                       >
@@ -99,7 +103,7 @@ export default function Brain() {
                           </span>
                           <span className="text-xs text-accent">→</span>
                         </div>
-                      </a>
+                      </Link>
                       {index < writings.length - 1 && (
                         <div className="h-px bg-hairline my-6" />
                       )}

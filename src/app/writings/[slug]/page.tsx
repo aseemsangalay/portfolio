@@ -73,7 +73,7 @@ export default async function WritingPage({ params }: WritingPageProps) {
 
             {/* Article content */}
             {isMdxBacked ? (
-              <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold">
+              <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:text-foreground prose-table:shadow-sm prose-table:rounded-lg prose-th:bg-surface prose-td:bg-surface">
                 <MdxClient slug={slug} />
               </article>
             ) : (

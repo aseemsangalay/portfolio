@@ -48,10 +48,10 @@ export default async function BlogPostPage({ params }: Props) {
         <Container>
           <div className="max-w-3xl mx-auto">
             <Link
-              href="/blog"
+              href="/writings"
               className="inline-flex items-center text-sm text-subtext hover:text-foreground transition-colors duration-300 mb-8"
             >
-              ← Back to Blog
+              ← Back to Writings
             </Link>
             <header className="mb-12">
               <div className="flex items-center gap-4 text-sm text-subtext mb-4">
@@ -59,25 +59,18 @@ export default async function BlogPostPage({ params }: Props) {
                 <span>•</span>
                 <span>{entry.meta.readingTime ?? ""}</span>
               </div>
-              <h1 className="text-display-bold text-foreground mb-4">
-                {entry.meta.title}
-              </h1>
-              <p className="text-body text-subtext leading-relaxed">
-                {entry.meta.description}
-              </p>
+              <h1 className="text-display-bold text-foreground mb-4">{entry.meta.title}</h1>
+              <p className="text-body text-subtext leading-relaxed">{entry.meta.description}</p>
               <div className="flex flex-wrap gap-2 pt-4">
                 {entry.meta.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full"
-                  >
+                  <span key={tag} className="px-3 py-1 text-xs font-medium bg-hairline text-subtext rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
             </header>
 
-            <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold">
+            <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:text-foreground prose-table:shadow-sm prose-table:rounded-lg prose-th:bg-surface prose-td:bg-surface">
               <MdxClient slug={slug} />
             </article>
           </div>
