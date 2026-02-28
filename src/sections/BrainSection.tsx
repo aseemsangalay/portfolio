@@ -4,16 +4,16 @@ import Link from "next/link";
 
 export default function BrainSection() {
     return (
-        <Section id="brain" className="bg-[#f4f2ee] text-[#111] pt-32 pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <Section id="brain" className="bg-[#f4f2ee] text-[#111] pt-20 pb-32 md:pt-32 md:pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-4xl mx-auto">
 
                     {/* --- TOP SECTION --- */}
-                    <div className="mb-12">
+                    <div className="mb-10 md:mb-12">
                         <h2 className="text-3xl md:text-5xl font-sans tracking-tight font-black mb-2 text-[#111] uppercase">
                             Brain
                         </h2>
-                        <p className="text-[12px] tracking-[0.1em] text-[#888] uppercase font-sans font-medium">
+                        <p className="text-[11px] md:text-[12px] tracking-[0.1em] text-[#888] uppercase font-sans font-medium">
                             Notes on systems and media shaping my thinking.
                         </p>
                     </div>
@@ -29,21 +29,21 @@ export default function BrainSection() {
                         {/* Left Column: Systems Notes */}
                         <Link
                             href="/brain/notes"
-                            className="flex flex-col py-24 px-8 md:px-12 group/col hover:bg-[#eceae4] transition-all duration-700 relative"
+                            className="flex flex-col py-16 md:py-24 px-6 md:px-12 group/col hover:bg-[#eceae4] transition-all duration-700 relative border-b md:border-b-0 border-[#d8d4cf]"
                         >
                             <div className="relative z-20">
                                 <h3 className="text-2xl md:text-4xl font-sans font-black tracking-tight text-[#111] uppercase mb-1">
                                     Systems Notes
                                 </h3>
-                                <p className="text-[16px] text-[#444] font-sans font-medium leading-relaxed mb-8">
+                                <p className="text-[14px] md:text-[16px] text-[#444] font-sans font-medium leading-relaxed mb-6 md:mb-8">
                                     Engineering judgment, distilled.
                                 </p>
 
-                                <div className="flex flex-col gap-8 mt-12">
-                                    <span className="text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
+                                <div className="flex flex-col gap-6 md:gap-8 mt-8 md:mt-12">
+                                    <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
                                         8 ESSAYS
                                     </span>
-                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] opacity-0 group-hover/col:opacity-100 transition-all duration-500 translate-x-[-12px] group-hover/col:translate-x-0">
+                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-0 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-[-12px] md:group-hover/col:translate-x-0">
                                         Enter &rarr;
                                     </div>
                                 </div>
@@ -53,21 +53,21 @@ export default function BrainSection() {
                         {/* Right Column: Reading & Media */}
                         <Link
                             href="/brain/reading"
-                            className="flex flex-col py-24 px-8 md:px-12 group/col hover:bg-[#eceae4] transition-all duration-700 relative"
+                            className="flex flex-col py-16 md:py-24 px-6 md:px-12 group/col hover:bg-[#eceae4] transition-all duration-700 relative"
                         >
                             <div className="relative z-20">
                                 <h3 className="text-2xl md:text-4xl font-sans font-black tracking-tight text-[#111] uppercase mb-1">
                                     Reading & Media
                                 </h3>
-                                <p className="text-[16px] text-[#444] font-sans font-medium leading-relaxed mb-8">
+                                <p className="text-[14px] md:text-[16px] text-[#444] font-sans font-medium leading-relaxed mb-6 md:mb-8">
                                     Books and ideas shaping my decisions.
                                 </p>
 
-                                <div className="flex flex-col gap-8 mt-12">
-                                    <span className="text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
+                                <div className="flex flex-col gap-6 md:gap-8 mt-8 md:mt-12">
+                                    <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
                                         14 BOOKS
                                     </span>
-                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] opacity-0 group-hover/col:opacity-100 transition-all duration-500 translate-x-[-12px] group-hover/col:translate-x-0">
+                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-0 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-[-12px] md:group-hover/col:translate-x-0">
                                         Explore &rarr;
                                     </div>
                                 </div>
