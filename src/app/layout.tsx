@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Analytics from "@/components/Analytics";
+import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/layout/Navigation";
 
 const spaceGrotesk = Space_Grotesk({
