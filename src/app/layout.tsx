@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import Navigation from "@/components/layout/Navigation";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -87,6 +88,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <Navigation />
         {children}
         <Analytics />
       </body>

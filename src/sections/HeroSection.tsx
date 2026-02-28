@@ -1,158 +1,73 @@
-"use client";
-
-import {
-    motion,
-    useScroll,
-    useTransform,
-    useMotionValue,
-    useSpring,
-} from "framer-motion";
-import { useRef, useEffect } from "react";
-import { siteConfig } from "@/config/site";
-
-// ─── Sub-components ──────────────────────────────────────────────────────────
-
-function BreathingRings({ className = "" }: { className?: string }) {
-    return (
-        <motion.div
-            className={className}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.04 }}
-            transition={{ duration: 2, delay: 1 }}
-        >
-            <svg
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full"
-            >
-                {[1, 2, 3, 4].map((ring, index) => (
-                    <motion.circle
-                        key={ring}
-                        cx="100"
-                        cy="100"
-                        r={20 + index * 15}
-                        stroke="currentColor"
-                        strokeWidth="0.5"
-                        fill="none"
-                        animate={{
-                            scale: [1, 1.1, 1],
-                            opacity: [0.02, 0.06, 0.02],
-                        }}
-                        transition={{
-                            duration: 4 + index * 0.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: index * 0.3,
-                        }}
-                    />
-                ))}
-            </svg>
-        </motion.div>
-    );
-}
-
-function PaperTexture({ className = "" }: { className?: string }) {
-    return (
-        <div
-            className={`absolute inset-0 pointer-events-none paper-texture ${className}`}
-        />
-    );
-}
-
-// ─── Section ─────────────────────────────────────────────────────────────────
+import Link from "next/link";
 
 export default function HeroSection() {
-    const ref = useRef<HTMLDivElement>(null);
-    const gridRef = useRef<HTMLDivElement>(null);
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"],
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "3%"]);
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
-    const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (gridRef.current) {
-                const rect = gridRef.current.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const isTouchDevice = window.matchMedia("(hover: none)").matches;
-                const intensity = isTouchDevice ? 0.01 : 0.05;
-                mouseX.set((e.clientX - centerX) * intensity);
-                mouseY.set((e.clientY - centerY) * intensity);
-            }
-        };
-
-        if (!window.matchMedia("(hover: none)").matches) {
-            window.addEventListener("mousemove", handleMouseMove);
-        }
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [mouseX, mouseY]);
-
     return (
-        <section
-            ref={ref}
-            id="hero"
-            className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background"
-        >
-            <PaperTexture />
+        <section id="hero" className="w-full bg-[#f4f2ee] text-[#111] overflow-hidden">
+            <div className="mx-auto w-full max-w-[1280px] px-[96px] pt-[140px] pb-[100px]">
+                {/* 1. STRUCTURAL GRID */}
+                <div className="flex flex-row items-start justify-between">
+                    {/* Left Column - Content */}
+                    <div className="flex-1">
+                        <h1 className="text-[88px] font-sans font-semibold leading-[1.05] tracking-tight text-[#111] mb-[28px]">
+                            Aseem Sangalay
+                        </h1>
 
-            <motion.div
-                ref={gridRef}
-                className="absolute inset-0 pointer-events-none parallax-grid"
-                style={{ x: springX, y: springY }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-            />
+                        <h2 className="text-[34px] font-serif italic text-[#333] leading-[1.3] mb-[42px]">
+                            Designing systems that endure.
+                        </h2>
 
-            <motion.div
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                style={{ color: "var(--foreground)" }}
-            >
-                <BreathingRings className="w-96 h-96 md:w-[500px] md:h-[500px]" />
-            </motion.div>
+                        <p className="text-[12px] tracking-[0.18em] text-[#888] uppercase font-sans font-medium mb-[56px]">
+                            SOFTWARE ENGINEER &middot; DISTRIBUTED SYSTEMS &middot; RESEARCH
+                        </p>
 
-            <div className="absolute inset-0 gradient-glow" />
+                        <div className="flex flex-row gap-[56px] text-[14px] font-bold tracking-[0.05em]">
+                            <Link
+                                href="/experience"
+                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1"
+                            >
+                                View Experience &rarr;
+                            </Link>
+                            <Link
+                                href="/projects"
+                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1"
+                            >
+                                View Projects &rarr;
+                            </Link>
+                            <Link
+                                href="/research"
+                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1"
+                            >
+                                Research &rarr;
+                            </Link>
+                        </div>
+                    </div>
 
-            <motion.div
-                style={{ y }}
-                className="text-center z-10 max-w-6xl mx-auto px-8"
-            >
-                <motion.h1
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-6xl md:text-7xl font-bold tracking-tight leading-tight mb-3 md:mb-5 text-foreground"
-                    style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
-                >
-                    {siteConfig.name}
-                </motion.h1>
+                    {/* Right Column - Meta Column */}
+                    <div className="flex flex-col space-y-[44px] pt-[14px] shrink-0 text-right w-[300px]">
+                        <div className="flex flex-col items-end">
+                            <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-1 leading-none">BASED IN</span>
+                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">NEW YORK, NY</span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-1 leading-none">FOCUS</span>
+                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">DIST. SYSTEMS</span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-1 leading-none">EXPERIENCE</span>
+                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">2+ YEARS</span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                            <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-1 leading-none">RESEARCH</span>
+                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">3 PUBLICATIONS</span>
+                        </div>
+                    </div>
+                </div>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-base md:text-lg text-foreground-muted font-medium"
-                >
-                    {siteConfig.tagline}
-                </motion.p>
-            </motion.div>
-
-            <motion.div
-                className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
-            />
+                {/* 2. DIVIDER */}
+                <div className="mt-[60px] w-full">
+                    <div className="border-t border-[#d8d4cf] w-full h-[1px]" />
+                </div>
+            </div>
         </section>
     );
 }

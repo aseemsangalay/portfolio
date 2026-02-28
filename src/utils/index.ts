@@ -23,3 +23,19 @@ export function formatDateShort(date: string): string {
         day: "numeric",
     });
 }
+/** Format a string containing **bold** text as an array of React elements. */
+export function formatRichText(text: string) {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+            return {
+                type: 'bold',
+                content: part.slice(2, -2)
+            };
+        }
+        return {
+            type: 'text',
+            content: part
+        };
+    });
+}

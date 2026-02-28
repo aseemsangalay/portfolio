@@ -33,10 +33,10 @@ export default async function WritingPage({ params }: WritingPageProps) {
           <div className="max-w-3xl mx-auto">
             {/* Back link */}
             <Link
-              href="/writings"
+              href="/research"
               className="inline-flex items-center text-sm text-subtext hover:text-foreground transition-colors duration-300 mb-8"
             >
-              ← Back to Writings
+              ← Back to Research
             </Link>
 
             {/* Article header */}

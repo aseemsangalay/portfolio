@@ -19,6 +19,8 @@ export interface Reading extends BaseContent {
     link?: string;
     author?: string;
     summary?: string;
+    year?: string;
+    insights?: string[];
 }
 
 export interface Project extends BaseContent {
@@ -33,6 +35,10 @@ export interface Project extends BaseContent {
     };
     image: string;
     featured: boolean;
+    status?: "PRODUCTION" | "LIVE" | "ARCHIVED" | "IN_DEVELOPMENT";
+    projectType?: "PERSONAL" | "RESEARCH" | "STARTUP" | "OPEN_SOURCE";
+    year?: string;
+    highlights?: string[];
 }
 
 export interface WorkExperience {
@@ -55,4 +61,13 @@ export interface NavigationItem {
     name: string;
     href: string;
     current?: boolean;
+}
+
+export interface BrainEntry {
+    slug: string;
+    title: string;
+    year: string;
+    thesis: string;
+    entryType: "SYSTEMS" | "ARCHITECTURE" | "SCALING" | "PRODUCT" | "ENGINEERING";
+    highlights: string[];
 }

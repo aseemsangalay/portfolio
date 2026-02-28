@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { WorkExperience } from "@/types";
@@ -10,99 +7,79 @@ interface WorkSectionProps {
     data?: WorkExperience[];
 }
 
+// Helper to bold markdown-style metrics
+function formatImpact(text: string) {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+            return (
+                <strong key={i} className="font-semibold text-[#111]">
+                    {part.slice(2, -2)}
+                </strong>
+            );
+        }
+        return part;
+    });
+}
+
 export default function WorkSection({ data = workExperiences }: WorkSectionProps) {
     return (
-        <Section id="work" className="bg-background">
+        <Section id="work" className="bg-[#f4f2ee] text-[#111] pt-32 pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
-                <div className="max-w-[1100px] mx-auto px-6 md:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                        viewport={{ once: true }}
-                        className="mb-16"
-                    >
-                        <h2 className="text-display-bold text-foreground mb-6">
-                            Work Experience
+                <div className="max-w-3xl mx-auto">
+
+                    <div className="mb-16">
+                        <h2 className="text-3xl md:text-4xl font-sans tracking-tight font-semibold mb-2 text-[#111]">
+                            Experience
                         </h2>
-                        <p className="text-body text-subtext leading-relaxed max-w-2xl">
-                            Building products and systems that scale, with a focus on impact
-                            and growth.
-                        </p>
-                    </motion.div>
+                    </div>
 
-                    <div className="space-y-12">
+                    <div className="flex flex-col">
                         {data.map((work, index) => (
-                            <motion.div
+                            <div
                                 key={work.company}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: index * 0.1,
-                                    ease: [0.4, 0, 0.2, 1],
-                                }}
-                                viewport={{ once: true }}
-                                className="border-l-2 border-hairline pl-8 relative bg-surface/30 rounded-r-lg p-6 -ml-6"
+                                className={`py-10 ${index !== 0 ? "border-t border-[#d8d4cf]" : ""}`}
                             >
-                                <div className="absolute -left-2 top-0 w-4 h-4 bg-background border-2 border-hairline rounded-full" />
-
-                                <div className="space-y-4">
-                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                                        <div>
-                                            <h3 className="text-xl font-display font-semibold text-foreground">
-                                                {work.link ? (
-                                                    <a
-                                                        href={work.link}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="hover:text-accent transition-colors duration-300 underline-animate"
-                                                    >
-                                                        {work.company}
-                                                    </a>
-                                                ) : (
-                                                    work.company
-                                                )}
-                                            </h3>
-                                            <p className="text-body text-subtext font-medium">
-                                                {work.role}
-                                            </p>
-                                        </div>
-                                        <span className="text-sm text-subtext font-medium">
-                                            {work.period}
+                                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4 gap-2">
+                                    <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3">
+                                        <h3 className="text-lg md:text-xl font-sans font-bold tracking-tight text-[#111]">
+                                            {work.role}
+                                        </h3>
+                                        <span className="text-[15px] font-sans font-medium text-[#777]">
+                                            {work.company}
                                         </span>
                                     </div>
-
-                                    <ul className="space-y-2">
-                                        {work.impacts.map((impact, impactIndex) => (
-                                            <li
-                                                key={impactIndex}
-                                                className="text-body text-subtext leading-relaxed flex items-start"
-                                            >
-                                                <span className="text-accent mr-2 mt-1">•</span>
-                                                {impact}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-[#666] shrink-0">
+                                        {work.period}
+                                    </span>
                                 </div>
-                            </motion.div>
+
+                                <ul className="space-y-1.5">
+                                    {work.impacts.map((impact, impactIndex) => (
+                                        <li
+                                            key={impactIndex}
+                                            className="text-[15px] text-[#222] font-sans leading-[1.4] pl-4 relative"
+                                        >
+                                            <span className="absolute left-0 top-[0.6em] w-1.5 h-[1.5px] bg-[#999] rounded-sm"></span>
+                                            {formatImpact(impact)}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         ))}
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        viewport={{ once: true }}
-                        className="mt-16 text-center"
-                    >
+                    <div className="mt-12 pt-10 border-t border-[#d8d4cf]">
                         <a
-                            href="/resume"
-                            className="inline-flex items-center text-sm font-medium text-accent hover:text-foreground transition-colors duration-300 underline-animate"
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] font-bold uppercase tracking-widest text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 inline-block"
                         >
-                            View résumé →
+                            View Full Résumé &rarr;
                         </a>
-                    </motion.div>
+                    </div>
+
                 </div>
             </Container>
         </Section>

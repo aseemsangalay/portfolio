@@ -11,54 +11,54 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({
-    title = "Let's build together.",
-    subtitle = "I'm always interested in new opportunities and meaningful conversations about systems, engineering, and building things that matter.",
+    title = "If you’re building systems that matter, we should talk.",
+    subtitle = "I work on systems, infrastructure, and ideas that compound.",
 }: ContactSectionProps) {
     return (
-        <Section id="contact" className="bg-background">
+        <Section id="contact" className="bg-[#f4f2ee] text-[#111] selection:bg-[#111] selection:text-[#f4f2ee] pb-12 md:pb-16">
             <Container>
-                <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                        viewport={{ once: true }}
-                        className="space-y-12"
-                    >
-                        <div className="space-y-6">
-                            <h2 className="text-display-bold text-foreground">
-                                {title}
-                            </h2>
-                            <p className="text-body max-w-2xl mx-auto leading-relaxed">
-                                {subtitle}
-                            </p>
-                        </div>
+                <div className="max-w-3xl mx-auto border-t border-[#d8d4cf] pt-16">
+                    <div className="mb-12">
+                        <h2 className="text-3xl md:text-4xl font-sans tracking-tight font-semibold mb-2 text-[#111]">
+                            {title}
+                        </h2>
+                        <p className="text-[12px] tracking-wide text-[#888] uppercase font-sans font-medium">
+                            {subtitle}
+                        </p>
+                    </div>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-                            {Object.entries(siteConfig.links).map(([name, href]) => (
-                                <motion.a
-                                    key={name}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    <div className="px-6 py-3 bg-surface border border-hairline rounded-full text-sm font-medium text-foreground hover:bg-surface-hover hover:border-border transition-all duration-300 hover-lift min-h-[44px] flex items-center justify-center">
-                                        {name.charAt(0).toUpperCase() + name.slice(1)}
-                                    </div>
-                                </motion.a>
-                            ))}
-                        </div>
+                    <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
+                        {/* Primary CTA */}
+                        <motion.a
+                            href={siteConfig.links.email}
+                            className="px-8 py-4 bg-[#111] text-[#f4f2ee] text-[11px] font-bold uppercase tracking-[0.2em] rounded-sm hover:bg-[#333] transition-all duration-300 shrink-0"
+                            whileHover={{ y: -2 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            Contact via Email
+                        </motion.a>
 
-                        <div className="pt-8">
-                            <p className="text-sm text-subtext">
-                                {siteConfig.brand.manifesto}
-                            </p>
+                        {/* Secondary Links */}
+                        <div className="flex items-center gap-6 text-[11px] font-bold tracking-[0.2em] uppercase text-[#888]">
+                            <a
+                                href={siteConfig.links.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-[#111] transition-colors underline-animate"
+                            >
+                                LinkedIn
+                            </a>
+                            <span className="w-2 h-px bg-[#d8d4cf]" />
+                            <a
+                                href={siteConfig.links.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-[#111] transition-colors underline-animate"
+                            >
+                                GitHub
+                            </a>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </Container>
         </Section>

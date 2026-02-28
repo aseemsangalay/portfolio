@@ -1,18 +1,15 @@
-import Navigation from "./Navigation";
-import Footer from "../Footer";
+interface PageLayoutProps {
+    children: React.ReactNode;
+}
 
 export default function PageLayout({
     children,
-}: {
-    children: React.ReactNode;
-}) {
+}: PageLayoutProps) {
     return (
         <>
-            <Navigation />
-            <main id="main-content" className="flex-1 flex flex-col min-h-screen pt-16">
+            <main id="main-content" className="flex-1 flex flex-col pt-16">
                 {children}
             </main>
-            <Footer />
         </>
     );
 }
