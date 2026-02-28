@@ -3,52 +3,29 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import DarkModeToggle from "@/components/DarkModeToggle";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export default function ScrollNavigation() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection(100);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const heroHeight = window.innerHeight;
-
-      // Show navbar after scrolling past hero
       setIsVisible(scrollY > heroHeight * 0.8);
-
-      // Update active section
-      const sections = document.querySelectorAll("section[id]");
-      const scrollPosition = scrollY + 100;
-
-      sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-        const sectionId = section.getAttribute("id") || "";
-
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          setActiveSection(sectionId);
-        }
-      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <AnimatePresence>
@@ -77,12 +54,11 @@ export default function ScrollNavigation() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className={`text-sm font-medium transition-colors duration-300 underline-animate px-2 py-1 rounded-md ${
-                          activeSection === item.href.replace("#", "") ||
-                          (item.href === "/" && activeSection === "home")
+                        className={`text-sm font-medium transition-colors duration-300 underline-animate px-2 py-1 rounded-md ${activeSection === item.href.replace("#", "") ||
+                            (item.href === "/" && activeSection === "home")
                             ? "text-accent"
                             : "text-subtext hover:text-foreground"
-                        }`}
+                          }`}
                       >
                         {item.name}
                       </Link>
@@ -139,12 +115,11 @@ export default function ScrollNavigation() {
                         <Link
                           href={item.href}
                           onClick={closeMobileMenu}
-                          className={`block px-4 py-3 text-base font-medium transition-colors duration-300 ${
-                            activeSection === item.href.replace("#", "") ||
-                            (item.href === "/" && activeSection === "home")
+                          className={`block px-4 py-3 text-base font-medium transition-colors duration-300 ${activeSection === item.href.replace("#", "") ||
+                              (item.href === "/" && activeSection === "home")
                               ? "text-accent bg-accent/5"
                               : "text-subtext hover:text-foreground hover:bg-hairline"
-                          }`}
+                            }`}
                         >
                           {item.name}
                         </Link>

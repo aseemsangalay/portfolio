@@ -1,10 +1,4 @@
-export interface WorkExperience {
-  company: string;
-  role: string;
-  period: string;
-  impacts: string[];
-  link?: string;
-}
+import { WorkExperience } from "@/types";
 
 export const workExperiences: WorkExperience[] = [
   {
@@ -37,4 +31,3 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
 ];
-

@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
-import { getProjects, getWritings } from "@/lib/content";
+import { projects } from "@/data/projects";
+import { writings } from "@/data/writings";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aseemsangalay.vercel.app";
@@ -45,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic project pages
-  const projectPages = getProjects().map((project) => ({
+  const projectPages = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(project.date),
     changeFrequency: "monthly" as const,
@@ -53,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic writing pages
-  const writingPages = getWritings().map((writing) => ({
+  const writingPages = writings.map((writing) => ({
     url: `${baseUrl}/writings/${writing.slug}`,
     lastModified: new Date(writing.date),
     changeFrequency: "monthly" as const,

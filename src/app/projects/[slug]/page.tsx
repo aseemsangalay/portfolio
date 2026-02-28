@@ -1,9 +1,10 @@
+import PageLayout from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getProjects } from "@/lib/content";
+import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
+import { formatDate } from "@/utils";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -12,7 +13,6 @@ interface ProjectPageProps {
 }
 
 export async function generateStaticParams() {
-  const projects = getProjects();
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -20,7 +20,6 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const projects = getProjects();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -28,8 +27,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      <Section className="pt-24 pb-16">
+    <PageLayout>
+      <Section className="py-16 bg-background min-h-screen">
         <Container>
           <div className="max-w-4xl mx-auto">
             {/* Back link */}
@@ -142,6 +141,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </Container>
       </Section>
-    </main>
+    </PageLayout>
   );
 }

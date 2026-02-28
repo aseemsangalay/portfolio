@@ -1,10 +1,10 @@
+import PageLayout from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getWritings } from "@/lib/content";
+import { writings } from "@/data/writings";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
-import MdxClient from "@/components/MdxClient";
+import { formatDate } from "@/utils";
 
 interface WritingPageProps {
   params: Promise<{
@@ -13,7 +13,6 @@ interface WritingPageProps {
 }
 
 export async function generateStaticParams() {
-  const writings = getWritings();
   return writings.map((writing) => ({
     slug: writing.slug,
   }));
@@ -21,18 +20,15 @@ export async function generateStaticParams() {
 
 export default async function WritingPage({ params }: WritingPageProps) {
   const { slug } = await params;
-  const writings = getWritings();
   const writing = writings.find((w) => w.slug === slug);
 
   if (!writing) {
     notFound();
   }
 
-  const isMdxBacked = slug === "what-2-years-in-tech-taught-me-about-scaling";
-
   return (
-    <main className="min-h-screen bg-background">
-      <Section className="pt-24 pb-16">
+    <PageLayout>
+      <Section className="py-16 bg-background min-h-screen">
         <Container>
           <div className="max-w-3xl mx-auto">
             {/* Back link */}
@@ -72,20 +68,14 @@ export default async function WritingPage({ params }: WritingPageProps) {
             </div>
 
             {/* Article content */}
-            {isMdxBacked ? (
-              <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:text-foreground prose-table:shadow-sm prose-table:rounded-lg prose-th:bg-surface prose-td:bg-surface">
-                <MdxClient slug={slug} />
-              </article>
-            ) : (
-              <div className="prose prose-lg max-w-none">
-                <div className="text-body text-subtext leading-relaxed whitespace-pre-line">
-                  {writing.content || "Content coming soon..."}
-                </div>
+            <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-display prose-h1:text-3xl md:prose-h1:text-4xl prose-h2:mt-10 prose-h2:pt-6 prose-h2:border-t prose-h2:border-hairline prose-a:text-accent hover:prose-a:text-foreground prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-accent prose-blockquote:text-foreground prose-table:shadow-sm prose-table:rounded-lg prose-th:bg-surface prose-td:bg-surface">
+              <div className="text-body text-subtext leading-relaxed whitespace-pre-line">
+                {writing.content || "Content coming soon..."}
               </div>
-            )}
+            </div>
           </div>
         </Container>
       </Section>
-    </main>
+    </PageLayout>
   );
 }

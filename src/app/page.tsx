@@ -1,9 +1,9 @@
-import Hero from "@/components/Hero";
-import WhatIDo from "@/components/WhatIDo";
-import Work from "@/components/Work";
-import CaseEssays from "@/components/CaseEssays";
-import Brain from "@/components/Brain";
-import Contact from "@/components/Contact";
+import HeroSection from "@/sections/HeroSection";
+import WhatIDoSection from "@/sections/WhatIDoSection";
+import WorkSection from "@/sections/WorkSection";
+import ProjectsSection from "@/sections/ProjectsSection";
+import BrainSection from "@/sections/BrainSection";
+import ContactSection from "@/sections/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollNavigation from "@/components/layout/ScrollNavigation";
 
@@ -12,12 +12,12 @@ export default function Home() {
     <>
       <ScrollNavigation />
       <main id="main-content" className="min-h-screen">
-        <Hero />
-        <WhatIDo />
-        <Work />
-        <CaseEssays />
-        <Brain />
-        <Contact />
+        <HeroSection />
+        <WhatIDoSection />
+        <WorkSection />
+        <ProjectsSection />
+        <BrainSection />
+        <ContactSection />
         <Footer />
       </main>
     </>

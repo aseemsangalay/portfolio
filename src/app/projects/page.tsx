@@ -1,15 +1,16 @@
+import PageLayout from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getProjects } from "@/lib/content";
+import { projects } from "@/data/projects";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
+import { formatDate } from "@/utils";
 
 export default function ProjectsPage() {
-  const projects = getProjects();
+  // Using projects directly from data
 
   return (
-    <main className="min-h-screen bg-background">
-      <Section className="pt-24 pb-16">
+    <PageLayout>
+      <Section className="py-16 bg-background min-h-screen">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="mb-16">
@@ -91,7 +92,7 @@ export default function ProjectsPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </PageLayout>
   );
 }
 

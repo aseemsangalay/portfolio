@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Project } from "@/types/content";
+import { Project } from "@/types";
 import { GridContainer } from "./Container";
 
 interface ProjectSpreadProps {

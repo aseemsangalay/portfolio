@@ -1,11 +1,12 @@
+import PageLayout from "@/components/layout/PageLayout";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/config/site";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background">
-      <Section className="pt-24 pb-16">
+    <PageLayout>
+      <Section className="py-16 bg-background min-h-screen">
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16">
@@ -91,7 +92,7 @@ export default function ContactPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </PageLayout>
   );
 }
 

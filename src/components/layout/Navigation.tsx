@@ -1,36 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 export default function Navigation() {
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section[id]");
-      const scrollPosition = window.scrollY + 100;
-
-      sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-        const sectionId = section.getAttribute("id") || "";
-
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          setActiveSection(sectionId);
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const activeSection = useActiveSection(100);
 
   return (
     <motion.nav
@@ -50,12 +27,11 @@ export default function Navigation() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
-                    activeSection === item.href.replace("#", "") ||
-                    (item.href === "/" && activeSection === "home")
+                  className={`text-sm font-medium transition-colors hover:text-accent ${activeSection === item.href.replace("#", "") ||
+                      (item.href === "/" && activeSection === "home")
                       ? "text-accent"
                       : "text-subtext"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>

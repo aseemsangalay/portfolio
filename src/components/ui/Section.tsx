@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ElementType, ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 
 interface SectionProps {
   children: ReactNode;
