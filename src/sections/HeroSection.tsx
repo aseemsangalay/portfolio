@@ -69,47 +69,54 @@ export default function HeroSection() {
 
                         <div className="flex flex-row justify-between items-start md:block">
                             {/* Links Column */}
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col md:flex-row gap-[16px] md:gap-[56px] text-[13px] md:text-[14px] font-bold tracking-[0.05em]"
-                            >
-                                <Link
-                                    href="/experience"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                                >
-                                    Experience &rarr;
-                                </Link>
-                                <Link
-                                    href="/projects"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                                >
-                                    Projects &rarr;
-                                </Link>
-                                <Link
-                                    href="/research"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                                >
-                                    Research &rarr;
-                                </Link>
-                                <Link
-                                    href="/brain"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                                >
-                                    Brain &rarr;
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                                >
-                                    Contact &rarr;
-                                </Link>
-                            </motion.div>
+                            <div className="flex flex-col md:flex-row gap-[20px] md:gap-[56px] text-[13px] md:text-[14px] font-bold tracking-[0.05em]">
+                                <motion.div variants={itemVariants}>
+                                    <Link
+                                        href="/experience"
+                                        className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    >
+                                        Experience &rarr;
+                                    </Link>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
+                                    <Link
+                                        href="/projects"
+                                        className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    >
+                                        Projects &rarr;
+                                    </Link>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
+                                    <Link
+                                        href="/research"
+                                        className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    >
+                                        Research &rarr;
+                                    </Link>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
+                                    <Link
+                                        href="/brain"
+                                        className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    >
+                                        Brain &rarr;
+                                    </Link>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
+                                    <Link
+                                        href="/contact"
+                                        className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    >
+                                        Contact &rarr;
+                                    </Link>
+                                </motion.div>
+                            </div>
 
                             {/* Mobile Meta Column (Visible only on small screens) */}
-                            <div className="flex md:hidden flex-col space-y-[24px] text-right">
+                            <div className="flex md:hidden flex-col gap-[20px] text-right">
                                 {metaFields.map((field) => (
                                     <motion.div key={field.label} variants={itemVariants} className="flex flex-col items-end">
-                                        <span className="text-[10px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">
+                                        <span className="text-[10px] tracking-[0.2em] font-black text-[#777] uppercase mb-[1px] leading-none font-mono">
                                             {field.label}
                                         </span>
                                         <span className="text-[12px] font-sans text-[#444] tracking-tight uppercase font-medium">
