@@ -45,6 +45,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
             y: 0,
             transition: {
                 duration: 0.6,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 ease: [0.16, 1, 0.3, 1] as any
             }
         }
