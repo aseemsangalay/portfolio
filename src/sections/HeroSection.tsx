@@ -25,13 +25,13 @@ export default function HeroSection() {
                                 href="/experience"
                                 className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
                             >
-                                View Experience &rarr;
+                                Experience &rarr;
                             </Link>
                             <Link
                                 href="/projects"
                                 className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
                             >
-                                View Projects &rarr;
+                                Projects &rarr;
                             </Link>
                             <Link
                                 href="/research"
