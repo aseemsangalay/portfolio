@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Newsreader, Space_Grotesk } from "next/font/google";
+import { Inter, Newsreader, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/layout/Navigation";
@@ -20,6 +20,11 @@ const newsreader = Newsreader({
   variable: "--font-newsreader",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -87,7 +92,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
         suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">

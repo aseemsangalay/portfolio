@@ -1,7 +1,10 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { WorkExperience } from "@/types";
 import { workExperiences } from "@/data/work";
+import { motion } from "framer-motion";
 
 interface WorkSectionProps {
     data?: WorkExperience[];
@@ -23,21 +26,56 @@ function formatImpact(text: string) {
 }
 
 export default function WorkSection({ data = workExperiences }: WorkSectionProps) {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1] as any
+            }
+        }
+    };
+
     return (
         <Section id="work" className="bg-[#f4f2ee] text-[#111] pt-20 pb-32 md:pt-32 md:pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-3xl mx-auto">
 
-                    <div className="mb-12 md:mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="mb-12 md:mb-16"
+                    >
                         <h2 className="text-[28px] md:text-4xl font-sans tracking-tight font-semibold mb-2 text-[#111]">
                             Experience
                         </h2>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-col">
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="flex flex-col"
+                    >
                         {data.map((work, index) => (
-                            <div
+                            <motion.div
                                 key={work.company}
+                                variants={itemVariants}
                                 className={`py-8 md:py-10 ${index !== 0 ? "border-t border-[#d8d4cf]" : ""}`}
                             >
                                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4 gap-2">
@@ -49,7 +87,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                                             {work.company}
                                         </span>
                                     </div>
-                                    <span className="text-[10px] md:text-[11px] font-bold tracking-[0.1em] uppercase text-[#666] shrink-0">
+                                    <span className="text-[10px] md:text-[11px] font-bold tracking-[0.1em] uppercase text-[#666] shrink-0 font-mono">
                                         {work.period}
                                     </span>
                                 </div>
@@ -65,15 +103,21 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
 
-                    <div className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-[#d8d4cf]">
-                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#aaa] cursor-not-allowed border-b border-transparent pb-1 inline-block">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                        className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-[#d8d4cf]"
+                    >
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#888] cursor-not-allowed border-b border-transparent pb-1 inline-block">
                             View Full Résumé (Coming Soon)
                         </span>
-                    </div>
+                    </motion.div>
 
                 </div>
             </Container>

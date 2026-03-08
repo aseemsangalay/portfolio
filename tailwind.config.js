@@ -11,6 +11,7 @@ module.exports = {
         display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         serif: ["var(--font-newsreader)", "serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
       colors: {
         background: "var(--color-background)",
