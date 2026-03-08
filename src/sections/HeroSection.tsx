@@ -46,7 +46,7 @@ export default function HeroSection() {
                     <div className="flex flex-col space-y-[32px] md:space-y-[44px] pt-[60px] md:pt-[14px] shrink-0 text-left md:text-right w-full md:w-[300px]">
                         <div className="flex flex-col items-start md:items-end">
                             <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-[2px] leading-none">BASED IN</span>
-                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">NEW YORK, NY</span>
+                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">HYDERABAD, IN</span>
                         </div>
                         <div className="flex flex-col items-start md:items-end">
                             <span className="text-[11px] tracking-[0.2em] font-black text-[#aaa] uppercase mb-[2px] leading-none">FOCUS</span>

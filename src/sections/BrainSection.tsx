@@ -33,7 +33,7 @@ export default function BrainSection() {
                         >
                             <div className="relative z-20">
                                 <h3 className="text-2xl md:text-4xl font-sans font-black tracking-tight text-[#111] uppercase mb-1">
-                                    Systems Notes
+                                    Notes
                                 </h3>
                                 <p className="text-[14px] md:text-[16px] text-[#444] font-sans font-medium leading-relaxed mb-6 md:mb-8">
                                     Engineering judgment, distilled.

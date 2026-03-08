@@ -70,14 +70,9 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                     </div>
 
                     <div className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-[#d8d4cf]">
-                        <a
-                            href="/resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[11px] font-bold uppercase tracking-widest text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 inline-block"
-                        >
-                            View Full Résumé &rarr;
-                        </a>
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#aaa] cursor-not-allowed border-b border-transparent pb-1 inline-block">
+                            View Full Résumé (Coming Soon)
+                        </span>
                     </div>
 
                 </div>
