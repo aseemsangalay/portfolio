@@ -3,6 +3,13 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const metaFields = [
+    { label: "BASED IN", value: "HYDERABAD, IN" },
+    { label: "FOCUS", value: "DIST. SYSTEMS" },
+    { label: "EXPERIENCE", value: "2+ YEARS" },
+    { label: "RESEARCH", value: "3 PUBLICATIONS" },
+];
+
 export default function HeroSection() {
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -38,7 +45,7 @@ export default function HeroSection() {
                 {/* 1. STRUCTURAL GRID */}
                 <div className="flex flex-col md:flex-row items-start justify-between">
                     {/* Left Column - Content */}
-                    <div className="flex-1">
+                    <div className="flex-1 w-full">
                         <motion.h1
                             variants={itemVariants}
                             className="text-[42px] sm:text-[52px] md:text-[82px] font-sans font-semibold leading-[1.05] tracking-tight text-[#111] mb-[20px] md:mb-[28px]"
@@ -60,61 +67,72 @@ export default function HeroSection() {
                             SOFTWARE ENGINEER &middot; DISTRIBUTED SYSTEMS &middot; RESEARCH
                         </motion.p>
 
-                        <motion.div
-                            variants={itemVariants}
-                            className="flex flex-col md:flex-row gap-[16px] md:gap-[56px] text-[13px] md:text-[14px] font-bold tracking-[0.05em]"
-                        >
-                            <Link
-                                href="/experience"
-                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                        <div className="flex flex-row justify-between items-start md:block">
+                            {/* Links Column */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="flex flex-col md:flex-row gap-[16px] md:gap-[56px] text-[13px] md:text-[14px] font-bold tracking-[0.05em]"
                             >
-                                Experience &rarr;
-                            </Link>
-                            <Link
-                                href="/projects"
-                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                            >
-                                Projects &rarr;
-                            </Link>
-                            <Link
-                                href="/research"
-                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                            >
-                                Research &rarr;
-                            </Link>
-                            <Link
-                                href="/brain"
-                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                            >
-                                Brain &rarr;
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
-                            >
-                                Contact &rarr;
-                            </Link>
-                        </motion.div>
+                                <Link
+                                    href="/experience"
+                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                >
+                                    Experience &rarr;
+                                </Link>
+                                <Link
+                                    href="/projects"
+                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                >
+                                    Projects &rarr;
+                                </Link>
+                                <Link
+                                    href="/research"
+                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                >
+                                    Research &rarr;
+                                </Link>
+                                <Link
+                                    href="/brain"
+                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                >
+                                    Brain &rarr;
+                                </Link>
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                >
+                                    Contact &rarr;
+                                </Link>
+                            </motion.div>
+
+                            {/* Mobile Meta Column (Visible only on small screens) */}
+                            <div className="flex md:hidden flex-col space-y-[24px] text-right">
+                                {metaFields.map((field) => (
+                                    <motion.div key={field.label} variants={itemVariants} className="flex flex-col items-end">
+                                        <span className="text-[10px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">
+                                            {field.label}
+                                        </span>
+                                        <span className="text-[12px] font-sans text-[#444] tracking-tight uppercase font-medium">
+                                            {field.value}
+                                        </span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Right Column - Meta Column */}
-                    <div className="flex flex-col space-y-[32px] md:space-y-[44px] pt-[60px] md:pt-[14px] shrink-0 text-left md:text-right w-full md:w-[300px]">
-                        <motion.div variants={itemVariants} className="flex flex-col items-start md:items-end">
-                            <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">BASED IN</span>
-                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">HYDERABAD, IN</span>
-                        </motion.div>
-                        <motion.div variants={itemVariants} className="flex flex-col items-start md:items-end">
-                            <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">FOCUS</span>
-                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">DIST. SYSTEMS</span>
-                        </motion.div>
-                        <motion.div variants={itemVariants} className="flex flex-col items-start md:items-end">
-                            <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">EXPERIENCE</span>
-                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">2+ YEARS</span>
-                        </motion.div>
-                        <motion.div variants={itemVariants} className="flex flex-col items-start md:items-end">
-                            <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">RESEARCH</span>
-                            <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">3 PUBLICATIONS</span>
-                        </motion.div>
+                    {/* Desktop Meta Column (Visible only on medium+ screens) */}
+                    <div className="hidden md:flex flex-col space-y-[44px] pt-[14px] shrink-0 text-right w-[300px]">
+                        {metaFields.map((field) => (
+                            <motion.div key={field.label} variants={itemVariants} className="flex flex-col items-end">
+                                <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">
+                                    {field.label}
+                                </span>
+                                <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">
+                                    {field.value}
+                                </span>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
 
