@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-/** Format a date string as "Month Day, Year" — e.g. "January 15, 2024". */
+/** Format a date string as "Month Day, Year" — e.g. "January 15, 2026". */
 export function formatDate(date: string): string {
     return new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
@@ -15,7 +15,7 @@ export function formatDate(date: string): string {
     });
 }
 
-/** Format a date string as "Mon Day, Year" — e.g. "Jan 15, 2024". */
+/** Format a date string as "Mon Day, Year" — e.g. "Jan 15, 2026". */
 export function formatDateShort(date: string): string {
     return new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
@@ -26,7 +26,7 @@ export function formatDateShort(date: string): string {
 /** Format a string containing **bold** text as an array of React elements. */
 export function formatRichText(text: string) {
     const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, i) => {
+    return parts.map((part) => {
         if (part.startsWith('**') && part.endsWith('**')) {
             return {
                 type: 'bold',

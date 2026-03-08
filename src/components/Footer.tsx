@@ -1,8 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -10,7 +6,7 @@ export default function Footer() {
       <Container>
         <div className="max-w-3xl mx-auto">
           <p className="text-[10px] font-black tracking-[0.3em] uppercase text-[#aaa]">
-            © 2024 · AS.
+            © 2026 · AS.
           </p>
         </div>
       </Container>
