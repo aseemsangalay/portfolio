@@ -39,6 +39,12 @@ export default function HeroSection() {
                             >
                                 Research &rarr;
                             </Link>
+                            <Link
+                                href="/brain"
+                                className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                            >
+                                Brain &rarr;
+                            </Link>
                         </div>
                     </div>
 
