@@ -24,24 +24,22 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aseemsangalay.vercel.app"),
-  title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
+  title: "Aseem Sangalay — Systems Engineer",
   description:
-    "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
+    "Engineering systems that endure. Personal portfolio of Aseem Sangalay.",
   keywords: [
     "engineer",
-    "developer",
     "systems thinking",
-    "portfolio",
-    "full stack",
-    "AI",
-    "machine learning",
+    "distributed systems",
+    "software architect",
+    "Aseem Sangalay",
   ],
   authors: [{ name: "Aseem Sangalay" }],
   creator: "Aseem Sangalay",
   openGraph: {
-    title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
+    title: "Aseem Sangalay — Systems Engineer",
     description:
-      "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
+      "Engineering systems that endure. Personal portfolio showcasing engineering projects and systems thinking.",
     type: "website",
     locale: "en_US",
     url: "https://aseemsangalay.com",
@@ -49,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
+    title: "Aseem Sangalay — Systems Engineer",
     description:
-      "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
+      "Engineering systems that endure. Personal portfolio showcasing engineering projects and systems thinking.",
   },
   robots: {
     index: true,
