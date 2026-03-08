@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Aseem Sangalay | Engineer · Builder · Systems Thinker";
+export const alt = "Aseem Sangalay — Systems Engineer";
 export const size = {
   width: 1200,
   height: 630,
@@ -57,7 +57,7 @@ export default async function Image() {
               lineHeight: "1.4",
             }}
           >
-            Engineer · Builder · Systems Thinker
+            Systems Engineer
           </p>
         </div>
       </div>
