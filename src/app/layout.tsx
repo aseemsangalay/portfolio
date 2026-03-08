@@ -69,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -88,6 +88,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} antialiased`}
+        suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">
           Skip to main content
