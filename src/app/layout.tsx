@@ -31,7 +31,7 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#0a0a0a",
+  themeColor: "#fafafa",
 };
 
 export const metadata: Metadata = {
@@ -81,26 +81,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'light') {
-                  document.documentElement.setAttribute('data-theme', 'light');
-                } else {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
+    <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased theme-transition`}
-        suppressHydrationWarning
+        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <a href="#main-content" className="skip-link">
           Skip to main content
