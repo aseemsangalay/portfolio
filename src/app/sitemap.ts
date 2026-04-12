@@ -14,7 +14,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/experience`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/research`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
@@ -26,16 +44,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/readings`,
+      url: `${baseUrl}/brain`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/brain/notes`,
       lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/brain/reading`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,

@@ -5,6 +5,12 @@ import { writings } from "@/data/writings";
 import Link from "next/link";
 import { formatDate } from "@/utils";
 
+export const metadata = {
+  title: "Writings | Aseem Sangalay",
+  description:
+    "Essays and articles on systems thinking, distributed systems, and building software that endures.",
+};
+
 export default function WritingsPage() {
   // Using writings directly from data
 

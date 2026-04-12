@@ -30,11 +30,9 @@ export default function DarkModeToggle() {
     if (newTheme) {
       document.documentElement.setAttribute("data-theme", "dark");
       localStorage.setItem("theme", "dark");
-      console.log("Switched to dark mode");
     } else {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
-      console.log("Switched to light mode");
     }
   };
 

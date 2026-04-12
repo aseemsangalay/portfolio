@@ -36,12 +36,12 @@ export default function HeroSection() {
     };
 
     return (
-        <section id="hero" className="w-full bg-[#f4f2ee] text-[#111] min-h-screen flex flex-col overflow-hidden">
+        <section id="hero" className="w-full bg-background text-foreground min-h-screen flex flex-col overflow-hidden">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="mx-auto w-full max-w-[1280px] px-[24px] md:px-[96px] pt-[80px] md:pt-[140px] flex-1 flex flex-col"
+                className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 md:px-8 pt-[80px] md:pt-[140px] flex-1 flex flex-col"
             >
                 {/* 1. STRUCTURAL GRID */}
                 <div className="flex flex-col md:flex-row items-start justify-between">
@@ -49,21 +49,21 @@ export default function HeroSection() {
                     <div className="flex-1 w-full">
                         <motion.h1
                             variants={itemVariants}
-                            className="text-[42px] sm:text-[52px] md:text-[82px] font-sans font-semibold leading-[1.05] tracking-tight text-[#111] mb-[20px] md:mb-[28px]"
+                            className="text-display font-semibold text-foreground mb-[20px] md:mb-[28px]"
                         >
                             Aseem Sangalay
                         </motion.h1>
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-[22px] md:text-[34px] font-serif italic text-[#222] leading-[1.3] mb-[32px] md:mb-[42px]"
+                            className="text-[22px] md:text-[34px] font-serif italic text-foreground-muted leading-[1.3] mb-[32px] md:mb-[42px]"
                         >
                             Designing systems that endure.
                         </motion.h2>
 
                         <motion.p
                             variants={itemVariants}
-                            className="text-[11px] md:text-[12px] tracking-[0.15em] text-[#888] uppercase font-sans font-medium mb-[40px] md:mb-[46px]"
+                            className="text-[11px] md:text-[12px] tracking-[0.15em] text-subtext uppercase font-sans font-medium mb-[40px] md:mb-[46px]"
                         >
                             SOFTWARE ENGINEER &middot; DISTRIBUTED SYSTEMS &middot; RESEARCH
                         </motion.p>
@@ -76,31 +76,31 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/experience"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Experience &rarr;
                                 </Link>
                                 <Link
                                     href="/projects"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Projects &rarr;
                                 </Link>
                                 <Link
                                     href="/research"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Research &rarr;
                                 </Link>
                                 <Link
                                     href="/brain"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Brain &rarr;
                                 </Link>
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 w-fit"
+                                    className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Contact &rarr;
                                 </Link>
@@ -110,10 +110,10 @@ export default function HeroSection() {
                             <div className="flex md:hidden flex-col space-y-[24px] text-right">
                                 {metaFields.map((field) => (
                                     <motion.div key={field.label} variants={itemVariants} className="flex flex-col items-end">
-                                        <span className="text-[10px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">
+                                        <span className="text-[12px] tracking-[0.2em] font-black text-subtext uppercase mb-[2px] leading-none font-mono">
                                             {field.label}
                                         </span>
-                                        <span className="text-[12px] font-sans text-[#444] tracking-tight uppercase font-medium">
+                                        <span className="text-[12px] font-sans text-foreground-muted tracking-tight uppercase font-medium">
                                             {field.value}
                                         </span>
                                     </motion.div>
@@ -126,10 +126,10 @@ export default function HeroSection() {
                     <div className="hidden md:flex flex-col space-y-[44px] pt-[14px] shrink-0 text-right w-[300px]">
                         {metaFields.map((field) => (
                             <motion.div key={field.label} variants={itemVariants} className="flex flex-col items-end">
-                                <span className="text-[11px] tracking-[0.2em] font-black text-[#777] uppercase mb-[2px] leading-none font-mono">
+                                <span className="text-[11px] tracking-[0.2em] font-black text-subtext uppercase mb-[2px] leading-none font-mono">
                                     {field.label}
                                 </span>
-                                <span className="text-[14px] font-sans text-[#444] tracking-tight uppercase font-medium">
+                                <span className="text-[14px] font-sans text-foreground-muted tracking-tight uppercase font-medium">
                                     {field.value}
                                 </span>
                             </motion.div>
@@ -142,7 +142,7 @@ export default function HeroSection() {
                     variants={itemVariants}
                     className="mt-auto mb-[8vh] w-full"
                 >
-                    <div className="border-t border-[#d8d4cf] w-full h-[1px]" />
+                    <div className="border-t border-hairline w-full h-[1px]" />
                 </motion.div>
             </motion.div>
         </section>

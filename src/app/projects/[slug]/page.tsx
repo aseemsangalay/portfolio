@@ -12,6 +12,20 @@ interface ProjectPageProps {
   }>;
 }
 
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return { title: "Project Not Found | Aseem Sangalay" };
+  }
+
+  return {
+    title: `${project.title} | Aseem Sangalay`,
+    description: project.summary,
+  };
+}
+
 export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,

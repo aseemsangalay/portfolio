@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,9 @@ import { Container } from "@/components/ui/Container";
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Close mobile menu when navigating
   useEffect(() => {
@@ -28,6 +31,60 @@ export default function Navigation() {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
+
+  // Move focus to first link when menu opens; return focus on close
+  useEffect(() => {
+    if (isOpen) {
+      // Wait for animation frame so the element is visible before focusing
+      const id = requestAnimationFrame(() => {
+        firstLinkRef.current?.focus();
+      });
+      return () => cancelAnimationFrame(id);
+    } else {
+      hamburgerRef.current?.focus();
+    }
+  }, [isOpen]);
+
+  // Focus trap: keep Tab/Shift+Tab cycling inside the open menu
+  const handleMenuKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (!isOpen) return;
+
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const menu = menuRef.current;
+      if (!menu) return;
+
+      const focusable = Array.from(
+        menu.querySelectorAll<HTMLElement>(
+          'a[href], button, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute("disabled"));
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    },
+    [isOpen]
+  );
 
   const isVisible = pathname !== "/";
 
@@ -72,9 +129,12 @@ export default function Navigation() {
 
                 {/* Mobile Toggle */}
                 <button
+                  ref={hamburgerRef}
                   onClick={() => setIsOpen(!isOpen)}
                   className="md:hidden z-50 text-white p-2"
-                  aria-label="Toggle menu"
+                  aria-label={isOpen ? "Close menu" : "Open menu"}
+                  aria-expanded={isOpen}
+                  aria-controls="mobile-menu"
                 >
                   {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -84,13 +144,19 @@ export default function Navigation() {
               <AnimatePresence>
                 {isOpen && (
                   <motion.div
+                    ref={menuRef}
+                    id="mobile-menu"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Navigation menu"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.2 }}
                     className="md:hidden flex flex-col items-start pt-12 space-y-6"
+                    onKeyDown={handleMenuKeyDown}
                   >
-                    {siteConfig.navigation.map((item) => {
+                    {siteConfig.navigation.map((item, index) => {
                       const isActive =
                         pathname === item.href ||
                         (item.href !== "/" && pathname?.startsWith(item.href));
@@ -98,6 +164,7 @@ export default function Navigation() {
                       return (
                         <Link
                           key={item.name}
+                          ref={index === 0 ? firstLinkRef : undefined}
                           href={item.href}
                           className={`text-2xl font-bold tracking-tight transition-colors ${isActive ? "text-white" : "text-white/40"
                             }`}

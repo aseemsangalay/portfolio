@@ -39,7 +39,7 @@
   /* Primary text - strong black */
   --foreground-muted: #1a1a1a;
   /* Secondary text */
-  --subtext: #525252;
+  --subtext: #4a4a4a;
   /* Tertiary text */
   --accent: #0a0a0a;
   /* Links, buttons - pure black */
@@ -86,8 +86,8 @@ body {
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-/* Smooth theme transitions for all elements */
-* {
+/* Smooth theme transitions — applied only to root, not every DOM node */
+.theme-transition {
   transition: background-color 0.6s ease, color 0.6s ease,
     border-color 0.6s ease;
 }
@@ -243,6 +243,7 @@ body {
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 64px;
 }
 
 /* Elegant underline animation */
@@ -386,9 +387,10 @@ html {
 }
 
 /* Focus states */
-.focus-visible:focus-visible {
+:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Card utilities */

@@ -27,6 +27,13 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0a0a0a",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://aseemsangalay.vercel.app"),
   title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
@@ -92,7 +99,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} antialiased theme-transition`}
         suppressHydrationWarning
       >
         <a href="#main-content" className="skip-link">
