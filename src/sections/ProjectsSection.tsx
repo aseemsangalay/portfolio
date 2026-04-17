@@ -58,8 +58,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         className="mb-10 md:mb-14"
                     >
@@ -74,15 +73,14 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
+                        animate="visible"
                         className="flex flex-col"
                     >
                         {projects.map((project, index) => (
                             <motion.div
                                 key={project.slug}
                                 variants={itemVariants}
-                                className={`py-8 md:py-10 ${index !== 0 ? "border-t border-[#d8d4cf]" : ""}`}
+                                className={`py-8 md:py-10 -mx-4 px-4 rounded-sm transition-colors duration-200 hover:bg-[#eceae4] ${index !== 0 ? "border-t border-[#d8d4cf]" : ""}`}
                             >
                                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-2">
                                     <h3 className="text-xl md:text-2xl font-sans font-black tracking-tight text-[#111] uppercase">
@@ -154,8 +152,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
 
                     <motion.div
                         initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
                         className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-[#d8d4cf] flex flex-wrap gap-8"
                     >

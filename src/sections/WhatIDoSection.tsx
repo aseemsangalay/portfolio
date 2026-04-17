@@ -19,9 +19,8 @@ export default function WhatIDoSection({
                 <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                        viewport={{ once: true }}
                         className="text-center mb-20"
                     >
                         <h2 className="text-display-bold text-foreground mb-6">
@@ -38,13 +37,12 @@ export default function WhatIDoSection({
                             <motion.div
                                 key={role.title}
                                 initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{
                                     duration: 0.8,
                                     delay: index * 0.15,
                                     ease: [0.4, 0, 0.2, 1],
                                 }}
-                                viewport={{ once: true }}
                                 className="group"
                             >
                                 <div className="bg-[#f4f2ee] border border-hairline rounded-2xl p-6 md:p-8 hover:border-accent/20 transition-all duration-500 hover-lift hover:shadow-lg hover:shadow-accent/5 h-full">

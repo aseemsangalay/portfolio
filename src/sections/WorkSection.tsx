@@ -56,8 +56,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         className="mb-6 md:mb-10"
                     >
@@ -69,8 +68,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
+                        animate="visible"
                         className="flex flex-col"
                     >
                         {data.map((work, index) => (
@@ -110,8 +108,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
 
                     <motion.div
                         initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
                         className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-[#d8d4cf]"
                     >

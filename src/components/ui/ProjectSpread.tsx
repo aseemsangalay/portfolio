@@ -12,13 +12,12 @@ export function ProjectSpread({ project }: ProjectSpreadProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.8,
         delay: 0.2,
         ease: [0.4, 0, 0.2, 1],
       }}
-      viewport={{ once: true }}
       className="mb-32"
     >
       <GridContainer className="items-center">
