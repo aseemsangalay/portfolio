@@ -15,9 +15,9 @@ export default function ContactSection({
     subtitle = "I work on systems, infrastructure, and ideas that compound.",
 }: ContactSectionProps) {
     return (
-        <Section id="contact" className="bg-[#f4f2ee] text-[#111] selection:bg-[#111] selection:text-[#f4f2ee] pb-24 md:pb-32">
+        <Section id="contact" className="bg-[#f4f2ee] text-[#111] selection:bg-[#111] selection:text-[#f4f2ee] pt-0 pb-24 md:pt-0 md:pb-32">
             <Container>
-                <div className="max-w-3xl mx-auto border-t border-[#d8d4cf] pt-12 md:pt-16">
+                <div className="max-w-3xl mx-auto pt-12 md:pt-16">
                     <div className="mb-10 md:mb-12">
                         <h2 className="text-2xl md:text-4xl font-sans tracking-tight font-bold mb-4 md:mb-2 text-[#111] leading-[1.3] md:leading-normal">
                             {title}

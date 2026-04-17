@@ -20,8 +20,8 @@ export default async function ReadingDetailPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-[#f4f2ee] pt-24 md:pt-32">
-            <Section className="text-[#111] pb-48">
+        <main className="min-h-screen bg-[#f4f2ee]">
+            <Section className="text-[#111] pt-0 pb-24 md:pt-0 md:pb-32">
                 <Container>
                     <div className="max-w-3xl mx-auto">
                         <Link href="/brain/reading" className="text-[11px] font-bold uppercase tracking-widest text-[#888] hover:text-[#111] transition-colors mb-16 inline-block">

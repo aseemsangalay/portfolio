@@ -1,11 +1,10 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
-import { writings } from "@/data/writings";
+import { brainEntries } from "@/data/brain";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aseemsangalay.vercel.app";
 
-  // Static pages
   const staticPages = [
     {
       url: baseUrl,
@@ -38,12 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/writings`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/brain`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
@@ -69,7 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic project pages
   const projectPages = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(project.date),
@@ -77,13 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Dynamic writing pages
-  const writingPages = writings.map((writing) => ({
-    url: `${baseUrl}/writings/${writing.slug}`,
-    lastModified: new Date(writing.date),
+  const brainNotePages = brainEntries.map((entry) => ({
+    url: `${baseUrl}/brain/notes/${entry.slug}`,
+    lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.6,
   }));
 
-  return [...staticPages, ...projectPages, ...writingPages];
+  return [...staticPages, ...projectPages, ...brainNotePages];
 }

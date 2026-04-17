@@ -52,7 +52,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
     };
 
     return (
-        <Section id="projects" className="bg-[#f4f2ee] text-[#111] pt-20 pb-32 md:pt-32 md:pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <Section id="projects" className="bg-[#f4f2ee] text-[#111] pt-0 pb-24 md:pt-0 md:pb-32 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-3xl mx-auto">
 
@@ -135,7 +135,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                                     </div>
                                 </div>
 
-                                <ul className="space-y-2.5 mb-8">
+                                <ul className="space-y-2.5">
                                     {project.highlights?.map((highlight, hIndex) => (
                                         <li
                                             key={hIndex}
@@ -167,7 +167,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                             GitHub &rarr;
                         </Link>
                         <Link
-                            href="/writings"
+                            href="/brain/notes"
                             className="text-[11px] font-bold uppercase tracking-widest text-[#111] hover:text-[#666] transition-colors border-b border-transparent hover:border-[#ccc] pb-1 inline-block"
                         >
                             Research Notes &rarr;

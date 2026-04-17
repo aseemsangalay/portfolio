@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 export default function AboutPage() {
   return (
     <PageLayout>
-      <Section className="py-16 bg-background min-h-screen">
+      <Section className="py-16 bg-[#f4f2ee] min-h-screen">
         <Container>
           <div className="max-w-3xl mx-auto">
             <div className="mb-16">

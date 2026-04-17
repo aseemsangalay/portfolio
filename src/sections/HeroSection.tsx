@@ -36,7 +36,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section id="hero" className="w-full bg-background text-foreground min-h-screen flex flex-col overflow-hidden">
+        <section id="hero" className="w-full bg-[#f4f2ee] text-foreground min-h-screen flex flex-col overflow-hidden">
             <motion.div
                 variants={containerVariants}
                 initial="hidden"

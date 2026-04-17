@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function BrainPage() {
     return (
-        <main className="min-h-screen bg-[#f4f2ee] pt-24 md:pt-32">
+        <main className="min-h-screen bg-[#f4f2ee]">
             <BrainSection />
             <Footer />
         </main>

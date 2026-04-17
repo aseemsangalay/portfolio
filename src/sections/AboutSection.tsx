@@ -8,7 +8,7 @@ import { Mail, Linkedin, Github } from "lucide-react";
 
 export default function AboutSection() {
     return (
-        <Section id="about" className="bg-background">
+        <Section id="about" className="bg-[#f4f2ee]">
             <Container>
                 <div className="max-w-2xl mx-auto text-center">
                     <motion.div

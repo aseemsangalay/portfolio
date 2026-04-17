@@ -50,7 +50,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
     };
 
     return (
-        <Section id="work" className="bg-[#f4f2ee] text-[#111] pt-20 pb-32 md:pt-32 md:pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <Section id="work" className="bg-[#f4f2ee] text-[#111] pt-0 pb-12 md:pt-0 md:pb-16 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-3xl mx-auto">
 
@@ -59,7 +59,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="mb-12 md:mb-16"
+                        className="mb-6 md:mb-10"
                     >
                         <h2 className="text-[28px] md:text-4xl font-sans tracking-tight font-semibold mb-2 text-[#111]">
                             Experience
@@ -113,7 +113,7 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 }}
-                        className="mt-8 md:mt-12 pt-8 md:pt-10 border-t border-[#d8d4cf]"
+                        className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-[#d8d4cf]"
                     >
                         <span className="text-[11px] font-bold uppercase tracking-widest text-[#888] cursor-not-allowed border-b border-transparent pb-1 inline-block">
                             View Full Résumé (Coming Soon)

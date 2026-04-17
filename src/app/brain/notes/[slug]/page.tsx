@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { MarkdownRenderer } from "@/components/ui/MarkdownRenderer";
 import { brainEntries } from "@/data/brain";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -20,8 +21,8 @@ export default async function NoteDetailPage({ params }: PageProps) {
     }
 
     return (
-        <main className="min-h-screen bg-[#f4f2ee] pt-24 md:pt-32">
-            <Section className="text-[#111] pb-48">
+        <main className="min-h-screen bg-[#f4f2ee]">
+            <Section className="text-[#111] pt-0 pb-24 md:pt-0 md:pb-32">
                 <Container>
                     <div className="max-w-3xl mx-auto">
                         <Link href="/brain/notes" className="text-[11px] font-bold uppercase tracking-widest text-[#888] hover:text-[#111] transition-colors mb-16 inline-block">
@@ -42,18 +43,22 @@ export default async function NoteDetailPage({ params }: PageProps) {
                             </p>
                         </div>
 
-                        <div className="space-y-12">
-                            {entry.highlights.map((highlight, index) => (
-                                <div key={index} className="flex gap-8 group">
-                                    <span className="text-[11px] font-black text-[#ccc] mt-1.5 tracking-tighter">
-                                        0{index + 1}
-                                    </span>
-                                    <p className="text-lg md:text-xl text-[#222] font-sans leading-relaxed">
-                                        {highlight}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                        {entry.content ? (
+                            <MarkdownRenderer content={entry.content} />
+                        ) : (
+                            <div className="space-y-12">
+                                {entry.highlights.map((highlight, index) => (
+                                    <div key={index} className="flex gap-8 group">
+                                        <span className="text-[11px] font-black text-[#ccc] mt-1.5 tracking-tighter">
+                                            0{index + 1}
+                                        </span>
+                                        <p className="text-lg md:text-xl text-[#222] font-sans leading-relaxed">
+                                            {highlight}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </Container>
             </Section>

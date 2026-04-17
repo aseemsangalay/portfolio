@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function ResearchPage() {
     return (
-        <main className="min-h-screen bg-[#f4f2ee] pt-24 md:pt-32">
-            <Section className="bg-[#f4f2ee] text-[#111] pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <main className="bg-[#f4f2ee] pt-20 md:pt-24">
+            <Section className="bg-[#f4f2ee] text-[#111] pt-0 pb-24 md:pt-0 md:pb-32 selection:bg-[#111] selection:text-[#f4f2ee]">
                 <Container>
                     <div className="max-w-3xl mx-auto">
                         <ComingSoonPage />

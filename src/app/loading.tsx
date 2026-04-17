@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/Container";
 
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-[#f4f2ee]">
       <Container>
         <div className="pt-24 pb-16">
           <div className="max-w-4xl mx-auto">

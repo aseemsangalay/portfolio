@@ -14,7 +14,7 @@ export default function WhatIDoSection({
     data = roles,
 }: WhatIDoSectionProps) {
     return (
-        <Section id="what-i-do" className="bg-background">
+        <Section id="what-i-do" className="bg-[#f4f2ee]">
             <Container>
                 <div className="max-w-5xl mx-auto">
                     <motion.div
@@ -47,7 +47,7 @@ export default function WhatIDoSection({
                                 viewport={{ once: true }}
                                 className="group"
                             >
-                                <div className="bg-background border border-hairline rounded-2xl p-6 md:p-8 hover:border-accent/20 transition-all duration-500 hover-lift hover:shadow-lg hover:shadow-accent/5 h-full">
+                                <div className="bg-[#f4f2ee] border border-hairline rounded-2xl p-6 md:p-8 hover:border-accent/20 transition-all duration-500 hover-lift hover:shadow-lg hover:shadow-accent/5 h-full">
                                     <div className="text-3xl md:text-4xl mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-500">
                                         {role.icon}
                                     </div>

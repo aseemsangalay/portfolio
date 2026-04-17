@@ -9,12 +9,6 @@ export interface BaseContent {
 
 // ─── Domain models ───────────────────────────────────────────────────────────
 
-export interface Writing extends BaseContent {
-    summary: string;
-    content: string;
-    readingTime: string;
-}
-
 export interface Reading extends BaseContent {
     link?: string;
     author?: string;
@@ -70,4 +64,5 @@ export interface BrainEntry {
     thesis: string;
     entryType: "SYSTEMS" | "ARCHITECTURE" | "SCALING" | "PRODUCT" | "ENGINEERING";
     highlights: string[];
+    content?: string;
 }

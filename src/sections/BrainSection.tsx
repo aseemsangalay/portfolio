@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function BrainSection() {
     return (
-        <Section id="brain" className="bg-[#f4f2ee] text-[#111] pt-20 pb-32 md:pt-32 md:pb-48 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <Section id="brain" className="bg-[#f4f2ee] text-[#111] pt-0 pb-24 md:pt-0 md:pb-32 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-4xl mx-auto">
 
@@ -41,9 +41,9 @@ export default function BrainSection() {
 
                                 <div className="flex flex-col gap-6 md:gap-8 mt-8 md:mt-12">
                                     <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
-                                        8 ESSAYS
+                                        2 ESSAYS
                                     </span>
-                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-0 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-[-12px] md:group-hover/col:translate-x-0">
+                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-50 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-0 md:group-hover/col:translate-x-1">
                                         Enter &rarr;
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@ export default function BrainSection() {
                                     <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
                                         14 BOOKS
                                     </span>
-                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-0 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-[-12px] md:group-hover/col:translate-x-0">
+                                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-50 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-0 md:group-hover/col:translate-x-1">
                                         Explore &rarr;
                                     </div>
                                 </div>

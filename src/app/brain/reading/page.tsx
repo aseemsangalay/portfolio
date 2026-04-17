@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ReadingLogPage() {
     return (
-        <section className="pt-24 md:pt-32 pb-24 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <section className="pb-24 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-4xl mx-auto">
 

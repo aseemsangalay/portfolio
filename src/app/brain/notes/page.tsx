@@ -2,9 +2,17 @@ import { Container } from "@/components/ui/Container";
 import { brainEntries } from "@/data/brain";
 import Link from "next/link";
 
+const systemsNotes = brainEntries
+    .filter((e) => e.title.startsWith("Systems Notes"))
+    .sort((a, b) => {
+        const numA = parseInt(a.title.match(/#(\d+)/)?.[1] ?? "0");
+        const numB = parseInt(b.title.match(/#(\d+)/)?.[1] ?? "0");
+        return numB - numA;
+    });
+
 export default function SystemsNotesPage() {
     return (
-        <section className="pt-24 md:pt-32 pb-24 selection:bg-[#111] selection:text-[#f4f2ee]">
+        <section className="pb-24 selection:bg-[#111] selection:text-[#f4f2ee]">
             <Container>
                 <div className="max-w-4xl mx-auto">
 
@@ -27,7 +35,7 @@ export default function SystemsNotesPage() {
 
                         {/* Table Rows */}
                         <div className="flex flex-col">
-                            {brainEntries.map((entry) => (
+                            {systemsNotes.map((entry) => (
                                 <Link
                                     key={entry.slug}
                                     href={`/brain/notes/${entry.slug}`}

@@ -42,7 +42,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <PageLayout>
-      <Section className="py-16 bg-background min-h-screen">
+      <Section className="py-16 bg-[#f4f2ee] min-h-screen">
         <Container>
           <div className="max-w-4xl mx-auto">
             {/* Back link */}
