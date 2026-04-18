@@ -20,6 +20,7 @@ export const projects: Project[] = [
         featured: true,
         status: "LIVE",
         projectType: "PERSONAL",
+        distilling: true,
         highlights: [
             "Designed RAG pipeline to retrieve relevant book context with **<200ms** latency.",
             "Implemented vector-based similarity matching to automate cross-reference discovery.",
@@ -46,6 +47,7 @@ export const projects: Project[] = [
         featured: true,
         status: "PRODUCTION",
         projectType: "PERSONAL",
+        distilling: true,
         highlights: [
             "Built a low-latency execution logger using an event-driven habit architecture.",
             "Designed a custom analytics engine to visualize identity-based habit streaks.",
@@ -72,6 +74,7 @@ export const projects: Project[] = [
         featured: true,
         status: "LIVE",
         projectType: "PERSONAL",
+        distilling: true,
         highlights: [
             "Developed greedy optimization algorithm to find the legal maxima of consecutive days off.",
             "Automated parsing of complex Indian regional holiday schedules into structured JSON.",

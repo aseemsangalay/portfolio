@@ -33,6 +33,7 @@ export interface Project extends BaseContent {
     projectType?: "PERSONAL" | "RESEARCH" | "STARTUP" | "OPEN_SOURCE";
     year?: string;
     highlights?: string[];
+    distilling?: boolean;
 }
 
 export interface WorkExperience {

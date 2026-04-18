@@ -100,7 +100,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         pre: ({ children, ...props }: ComponentPropsWithoutRef<"pre">) => (
           <pre
             {...props}
-            className="bg-[#f4f2ee] border border-[#d8d4cf] rounded-lg px-6 py-5 my-8 overflow-x-auto text-[13px] font-mono leading-relaxed"
+            className="bg-[#ebe8e0] border border-[#ccc9c2] rounded-lg px-6 py-5 my-8 overflow-x-auto text-[13px] font-mono leading-relaxed"
           >
             {children}
           </pre>

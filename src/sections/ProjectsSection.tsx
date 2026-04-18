@@ -83,9 +83,16 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                                 className={`py-8 md:py-10 -mx-4 px-4 rounded-sm transition-colors duration-200 hover:bg-[#eceae4] ${index !== 0 ? "border-t border-[#d8d4cf]" : ""}`}
                             >
                                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2 gap-2">
-                                    <h3 className="text-xl md:text-2xl font-sans font-black tracking-tight text-[#111] uppercase">
-                                        {project.title}
-                                    </h3>
+                                    <div className="flex items-baseline gap-3">
+                                        <h3 className="text-xl md:text-2xl font-sans font-black tracking-tight text-[#111] uppercase">
+                                            {project.title}
+                                        </h3>
+                                        {project.distilling && (
+                                            <span className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#999] border border-[#d8d4cf] px-1.5 py-0.5 rounded-sm shrink-0">
+                                                DISTILLING
+                                            </span>
+                                        )}
+                                    </div>
                                     <span className="text-[10px] md:text-[11px] font-bold tracking-[0.1em] uppercase text-[#666] shrink-0 font-mono">
                                         {project.year}
                                     </span>
