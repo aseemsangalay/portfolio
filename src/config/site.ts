@@ -6,7 +6,7 @@ export const siteConfig = {
     url: "https://aseemsangalay.com",
     ogImage: "https://aseemsangalay.com/og.jpg",
     links: {
-        email: "mailto:aseem@example.com",
+        email: "mailto:aseemsangalay@gmail.com",
         linkedin: "https://linkedin.com/in/aseemsangalay",
         github: "https://github.com/aseemsangalay",
         twitter: "https://twitter.com/aseemsangalay",

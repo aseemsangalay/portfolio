@@ -7,7 +7,7 @@ const metaFields = [
     { label: "BASED IN", value: "HYDERABAD, IN" },
     { label: "FOCUS", value: "DIST. SYSTEMS" },
     { label: "EXPERIENCE", value: "2+ YEARS" },
-    { label: "RESEARCH", value: "3 PUBLICATIONS" },
+    { label: "RESEARCH", value: "3+ PUBLICATIONS" },
 ];
 
 export default function HeroSection() {
