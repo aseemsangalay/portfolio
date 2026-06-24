@@ -42,5 +42,33 @@ export const readings: Reading[] = [
             "The goal of software architecture is to minimize the human resources required to build and maintain the system.",
             "Design Decision: Prioritize decoupling systems so they can be independently tested and replaced without cascading failure."
         ]
+    },
+    {
+        slug: "shoe-dog",
+        title: "Shoe Dog",
+        author: "Phil Knight",
+        date: "2024-08-12",
+        year: "2024",
+        tags: ["Entrepreneurship", "Memoir", "Building"],
+        summary: "Phil Knight's memoir of building Nike from a handshake deal to a global empire.",
+        insights: [
+            "Survival is the first product. Before scale, before culture, before strategy — you have to still be in the game.",
+            "Obsession is not a liability. Knight's irrational commitment to running shoes was the moat, not the flaw.",
+            "Takeaway: The founding story is never clean in hindsight. Build through the chaos first; clarity comes later."
+        ]
+    },
+    {
+        slug: "why-we-sleep",
+        title: "Why We Sleep",
+        author: "Matthew Walker",
+        date: "2024-10-05",
+        year: "2024",
+        tags: ["Science", "Health", "Performance"],
+        summary: "The science of sleep and why it is the single most important health behaviour available to us.",
+        insights: [
+            "Sleep is not passive recovery — it actively consolidates memory, clears metabolic waste, and regulates emotional response.",
+            "Chronic sleep deprivation below 7 hours compounds invisibly: cognitive impairment accumulates while subjective tiredness flatlines.",
+            "Takeaway: Sleep is the highest-leverage performance input, yet the one most culturally rewarded to sacrifice."
+        ]
     }
 ];
