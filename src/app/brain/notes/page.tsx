@@ -3,12 +3,8 @@ import { brainEntries } from "@/data/brain";
 import Link from "next/link";
 
 const systemsNotes = brainEntries
-    .filter((e) => e.title.startsWith("Systems Notes"))
-    .sort((a, b) => {
-        const numA = parseInt(a.title.match(/#(\d+)/)?.[1] ?? "0");
-        const numB = parseInt(b.title.match(/#(\d+)/)?.[1] ?? "0");
-        return numB - numA;
-    });
+    .filter((e) => e.content)
+    .sort((a, b) => Number(b.year) - Number(a.year));
 
 export default function SystemsNotesPage() {
     return (

@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import Link from "next/link";
 import { readings } from "@/data/readings";
+import { brainEntries } from "@/data/brain";
 
 export default function BrainSection() {
     return (
@@ -42,7 +43,7 @@ export default function BrainSection() {
 
                                 <div className="flex flex-col gap-6 md:gap-8 mt-8 md:mt-12">
                                     <span className="text-[9px] md:text-[10px] tracking-[0.3em] font-bold text-[#aaa] uppercase">
-                                        2 ESSAYS
+                                        {brainEntries.filter((e) => e.content).length} ESSAYS
                                     </span>
                                     <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#111] md:opacity-50 md:group-hover/col:opacity-100 transition-all duration-500 md:translate-x-0 md:group-hover/col:translate-x-1">
                                         Enter &rarr;
