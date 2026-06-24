@@ -225,4 +225,62 @@ If a retry is safe by design — your system can recover from anything the netwo
 
 Surviving code doesn't hope the network behaves. It's designed for when it doesn't.`,
     },
+    {
+        slug: "ai-agents-break-hidden-assumption-distributed-systems",
+        title: "AI Agents Break a Hidden Assumption in Distributed Systems",
+        year: "2026",
+        thesis: "Distributed systems gave us fifty years of answers for nodes that fail. AI engineering is the first discipline that has to answer for nodes that decide.",
+        entryType: "SYSTEMS",
+        highlights: [
+            "Every classical reliability pattern — idempotency, retries, consensus — assumes a deterministic node. AI agents violate that assumption by default.",
+            "Idempotency keys break when the node is a model: retry the same step, get a different plan. There's no stable 'same request' to key against.",
+            "Split-brain no longer requires a network fault. Two healthy agents reasoning over the same ambiguous context can arrive at conflicting, equally defensible beliefs.",
+            "Pushing determinism to the execution layer closes the execution problem, not the planning problem. Verification and split-brain live above it.",
+        ],
+        content: `Distributed systems theory has a quiet assumption baked into almost every pattern it ever produced: a node, if it runs at all, runs deterministically. Same input, same output, every time. Crash it, retry it, replay it — the computation itself never wavers. Idempotency keys, retries, consensus, exactly-once semantics — the entire fifty-year toolkit is built on top of that one assumption.
+
+That assumption was never absolute. Human-in-the-loop approval chains, manual review steps in workflow engines, financial sign-off systems — stochastic decision-makers have sat inside distributed systems for decades. But they were always the exception the protocol was designed *around*: isolated, slow, walled off with manual fallback paths, never the default unit of computation.
+
+AI agents flip that. The stochastic node isn't the exception anymore — it's the architecture itself. Every step is now a decision rather than a deterministic computation, and that's the actual break: not that non-determinism is new, but that it just became the rule instead of the edge case.
+
+## The industry already noticed the resemblance — but stopped one layer short
+
+A consistent realization has been building across the industry: production AI agents fail like distributed systems, not like models. The reliability problems showing up in agent systems aren't model problems — they're the same partial-failure and inconsistent-state problems distributed systems engineers have spent two decades solving, just never consistently applied to agents.
+
+The pattern repeats everywhere: retries causing duplicate emails, duplicate charges, duplicate bookings; teams reaching for circuit breakers, idempotency keys, and saga-style compensation logic borrowed straight from distributed transactions, because an agent retry without one will double the side effect.
+
+All of this is correct. All of this is also half the picture.
+
+## What the resemblance misses
+
+Every fix above — idempotency key, circuit breaker, saga compensation — depends on being able to answer one question cheaply: *is this a retry of the same thing, or a different thing?*
+
+In classical distributed systems, that question is trivial. A retried request is the same request. You can hash it, version it, dedupe it.
+
+In an agentic system, the "node" doing the work is a model deciding what to do, not executing a fixed instruction. Retry the same step, and the agent may reason its way to a different plan — different tool, different arguments, different number of steps — not because anything failed, but because that's what a stochastic decision-maker does when asked the same question twice. Your idempotency key was built to catch "the same action, attempted again." It has no concept for "a different action, in response to the same trigger." There may not even be a stable notion of "the same request" to key against.
+
+This isn't entirely unprecedented. Consensus systems already have a mechanism for invalidating stale decisions — fencing tokens and epoch numbers in Raft-style protocols reject a leader's action once a newer term has superseded it. The precedent exists, but only at the level of "is this decision-maker still authoritative," not "is this decision-maker's *output* still the same as before." Fencing tells you whether to trust the source. It says nothing about whether two outputs from a trusted, healthy source actually agree with each other. That's the gap nothing in the existing toolkit closes.
+
+This breaks more than retries.
+
+**Verification stops being cheap.** Classical systems verify a retry's success with a checksum, a version number, a status flag — fast, deterministic checks. You cannot checksum whether an agent's decision was *correct*. That requires an eval, a judgment call, sometimes a human — orders of magnitude more expensive than the check it's replacing. The fast-path verification distributed systems were designed around doesn't exist for stochastic decisions.
+
+**Split-brain stops requiring a fault.** Classical split-brain comes from a network partition: two nodes lose contact, each acts on a stale view of shared state. Distributed systems theory does have a literature for nodes disagreeing: Byzantine fault tolerance, going back to Lamport's Byzantine Generals problem, handles nodes that give conflicting or false information. But it handles that disagreement as a *fault* — a broken, lying, or malicious node that the protocol must detect and outvote. Multi-agent systems can produce the same conflicting-state outcome with every node fully healthy, fully honest, and the network fully intact — two agents independently reasoning over the same ambiguous context and arriving at different, equally defensible beliefs about what's true. No partition. No failure. No bad actor. Byzantine fault tolerance has no protocol for two correctly-functioning nodes that simply interpreted the same input differently — because that was never framed as a fault to tolerate.
+
+## The obvious counter, and why it only half-works
+
+The standard answer to all of this is architectural discipline: keep the model's non-determinism confined to planning, and force every side-effecting action through a deterministic, idempotent execution layer. The model can think however it wants; the tool call it ultimately fires is fixed, fenced, and safe to retry.
+
+This genuinely closes the execution-layer problem. It does not close the planning-layer problem. The plan itself is still a judgment, made fresh each time, and two runs of the same planning step can produce two different, individually reasonable plans before either one ever reaches the deterministic execution boundary. Constraining execution tells you the *action*, once chosen, is safe to retry. It says nothing about whether the *choice* of action was the right one, or whether two agents reasoning over the same context chose differently. Verification and split-brain are planning-layer problems. Pushing determinism down to the execution layer is necessary, well worth doing, and does not touch either one.
+
+## The actual gap
+
+The industry's current move — "treat the agent like a distributed system" — is necessary and still incomplete. It imports a toolkit built for nodes that don't change their mind, and applies it to nodes that do. Some of the toolkit transfers cleanly. Some of it silently doesn't, and nobody notices until production tells them.
+
+The next layer of this discipline isn't relearning idempotency and circuit breakers — that work is already underway, and it's good work. It's recognizing which classical guarantees were never designed to survive a decision-maker in the loop, and building the layer of correctness checking that has to exist *above* the old reliability patterns, not as a replacement for them.
+
+The practical consequence reaches past agent design into the infrastructure underneath it. Cloud platforms have spent two decades becoming extremely good at operating fleets of deterministic software — autoscaling, orchestration, observability, all built for services that behave the same way twice. That substrate is now being asked to host something different: fleets of reasoning processes, not fleets of services. We already know how to operate fleets of software reliably. The open problem is learning to operate fleets of reasoning.
+
+Distributed systems gave us fifty years of answers for nodes that fail. AI engineering is the first discipline that has to answer for nodes that decide.`,
+    },
 ];
