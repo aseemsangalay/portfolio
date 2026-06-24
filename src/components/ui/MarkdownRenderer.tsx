@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ComponentPropsWithoutRef } from "react";
 import { DiagramRetryComparison } from "./DiagramRetryComparison";
+import { DiagramSplitBrain } from "./DiagramSplitBrain";
 
 interface MarkdownRendererProps {
   content: string;
@@ -83,6 +84,9 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             const diagramType = typeof children === "string" ? children.trim() : "";
             if (className === "language-diagram" && diagramType === "retry-comparison") {
               return <DiagramRetryComparison />;
+            }
+            if (className === "language-diagram" && diagramType === "split-brain") {
+              return <DiagramSplitBrain />;
             }
             return (
               <code

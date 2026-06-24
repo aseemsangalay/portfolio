@@ -271,6 +271,10 @@ This breaks more than retries.
 
 **Split-brain stops requiring a fault.** Classical split-brain comes from a network partition: two nodes lose contact, each acts on a stale view of shared state. Distributed systems theory does have a literature for nodes disagreeing: Byzantine fault tolerance, going back to Lamport's Byzantine Generals problem, handles nodes that give conflicting or false information. But it handles that disagreement as a *fault* — a broken, lying, or malicious node that the protocol must detect and outvote. Multi-agent systems can produce the same conflicting-state outcome with every node fully healthy, fully honest, and the network fully intact — two agents independently reasoning over the same ambiguous context and arriving at different, equally defensible beliefs about what's true. No partition. No failure. No bad actor. Byzantine fault tolerance has no protocol for two correctly-functioning nodes that simply interpreted the same input differently — because that was never framed as a fault to tolerate.
 
+\`\`\`diagram
+split-brain
+\`\`\`
+
 ## The obvious counter, and why it only half-works
 
 The standard answer to all of this is architectural discipline: keep the model's non-determinism confined to planning, and force every side-effecting action through a deterministic, idempotent execution layer. The model can think however it wants; the tool call it ultimately fires is fixed, fenced, and safe to retry.
