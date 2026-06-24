@@ -3,6 +3,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ComponentPropsWithoutRef } from "react";
+import { DiagramRetryComparison } from "./DiagramRetryComparison";
 
 interface MarkdownRendererProps {
   content: string;
@@ -79,6 +80,10 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
         code: ({ children, className, ...props }: ComponentPropsWithoutRef<"code">) => {
           const isBlock = className?.startsWith("language-");
           if (isBlock) {
+            const diagramType = typeof children === "string" ? children.trim() : "";
+            if (className === "language-diagram" && diagramType === "retry-comparison") {
+              return <DiagramRetryComparison />;
+            }
             return (
               <code
                 {...props}

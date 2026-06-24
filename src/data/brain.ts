@@ -255,6 +255,10 @@ All of this is correct. All of this is also half the picture.
 
 Every fix above — idempotency key, circuit breaker, saga compensation — depends on being able to answer one question cheaply: *is this a retry of the same thing, or a different thing?*
 
+\`\`\`diagram
+retry-comparison
+\`\`\`
+
 In classical distributed systems, that question is trivial. A retried request is the same request. You can hash it, version it, dedupe it.
 
 In an agentic system, the "node" doing the work is a model deciding what to do, not executing a fixed instruction. Retry the same step, and the agent may reason its way to a different plan — different tool, different arguments, different number of steps — not because anything failed, but because that's what a stochastic decision-maker does when asked the same question twice. Your idempotency key was built to catch "the same action, attempted again." It has no concept for "a different action, in response to the same trigger." There may not even be a stable notion of "the same request" to key against.
