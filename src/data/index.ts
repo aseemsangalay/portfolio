@@ -2,4 +2,3 @@
 export { workExperiences } from "./work";
 export { readings } from "./readings";
 export { projects } from "./projects";
-export { roles } from "./roles";

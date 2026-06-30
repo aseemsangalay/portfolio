@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const metaFields = [
     { label: "BASED IN", value: "HYDERABAD, IN" },
-    { label: "FOCUS", value: "DIST. SYSTEMS" },
-    { label: "EXPERIENCE", value: "2+ YEARS" },
+    { label: "FOCUS", value: "AI ENGINEERING" },
+    { label: "EXPERIENCE", value: "3+ YEARS" },
     { label: "RESEARCH", value: "3+ PUBLICATIONS" },
 ];
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
                             variants={itemVariants}
                             className="text-[11px] md:text-[12px] tracking-[0.15em] text-subtext uppercase font-sans font-medium mb-[40px] md:mb-[46px]"
                         >
-                            SOFTWARE ENGINEER &middot; DISTRIBUTED SYSTEMS &middot; RESEARCH
+                            SENIOR SOFTWARE ENGINEER &middot; AI ENGINEERING &middot; RESEARCH
                         </motion.p>
 
                         <div className="flex flex-row justify-between items-start md:block">
@@ -103,6 +103,25 @@ export default function HeroSection() {
                                     className="inline-flex items-center text-foreground hover:text-subtext transition-colors border-b border-transparent hover:border-border pb-1 w-fit"
                                 >
                                     Contact &rarr;
+                                </Link>
+                            </motion.div>
+
+                            {/* Featured project — desktop only */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="hidden md:flex mt-[40px] md:mt-[48px]"
+                            >
+                                <Link
+                                    href="/projects/genai-arch-reviewer/case-study"
+                                    className="inline-flex items-center gap-3 group"
+                                >
+                                    <span className="text-[9px] font-black tracking-[0.25em] uppercase text-subtext">
+                                        FEATURED
+                                    </span>
+                                    <span className="w-6 h-px bg-border group-hover:w-10 transition-all duration-300" />
+                                    <span className="text-[12px] md:text-[13px] font-medium text-foreground-muted group-hover:text-foreground transition-colors">
+                                        GenAI Architecture Reviewer — senior-architect critique from a single prompt
+                                    </span>
                                 </Link>
                             </motion.div>
 

@@ -4,11 +4,29 @@ import { readings } from "@/data/readings";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 
 interface PageProps {
     params: Promise<{
         slug: string;
     }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const reading = readings.find((r) => r.slug === slug);
+
+    if (!reading) return {};
+
+    const description = reading.summary ?? reading.insights?.[0] ?? "";
+    const url = `https://aseemsangalay.com/brain/reading/${slug}`;
+
+    return {
+        title: `${reading.title} — ${reading.author} | Aseem Sangalay`,
+        description,
+        openGraph: { title: reading.title, description, url, type: "article" },
+        twitter: { card: "summary_large_image", title: reading.title, description },
+    };
 }
 
 export default async function ReadingDetailPage({ params }: PageProps) {

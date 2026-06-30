@@ -15,27 +15,3 @@ export function formatDate(date: string): string {
     });
 }
 
-/** Format a date string as "Mon Day, Year" — e.g. "Jan 15, 2026". */
-export function formatDateShort(date: string): string {
-    return new Date(date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-    });
-}
-/** Format a string containing **bold** text as an array of React elements. */
-export function formatRichText(text: string) {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part) => {
-        if (part.startsWith('**') && part.endsWith('**')) {
-            return {
-                type: 'bold',
-                content: part.slice(2, -2)
-            };
-        }
-        return {
-            type: 'text',
-            content: part
-        };
-    });
-}

@@ -35,7 +35,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aseemsangalay.vercel.app"),
+  metadataBase: new URL("https://aseemsangalay.com"),
   title: "Aseem Sangalay | Engineer · Builder · Systems Thinker",
   description:
     "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",

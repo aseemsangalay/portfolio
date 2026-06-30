@@ -106,16 +106,6 @@ export default function WorkSection({ data = workExperiences }: WorkSectionProps
                         ))}
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-[#d8d4cf]"
-                    >
-                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#888] cursor-not-allowed border-b border-transparent pb-1 inline-block">
-                            View Full Résumé (Coming Soon)
-                        </span>
-                    </motion.div>
 
                 </div>
             </Container>

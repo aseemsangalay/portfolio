@@ -1,10 +1,9 @@
 export const siteConfig = {
     name: "Aseem Sangalay",
-    tagline: "Engineer · Builder · Systems Thinker",
+    tagline: "Engineer · Builder · AI Thinker",
     description:
-        "Personal portfolio showcasing engineering projects and systems thinking approach to building digital solutions.",
+        "Senior Software Engineer specialising in AI systems, GenAI pipelines, and production LLM applications. IEEE-published researcher.",
     url: "https://aseemsangalay.com",
-    ogImage: "https://aseemsangalay.com/og.jpg",
     links: {
         email: "mailto:aseemsangalay@gmail.com",
         linkedin: "https://linkedin.com/in/aseemsangalay",

@@ -73,33 +73,6 @@ Reliability isn't patched later. It's chosen at design time.
 Engineering maturity isn't measured by what your code can do, but by what it can withstand.`,
     },
     {
-        slug: "systems-thinking",
-        title: "The Art of Systems Thinking",
-        year: "2024",
-        thesis: "Systems thinking isn't a methodology — it's a lens that reveals the invisible structure beneath every complex problem.",
-        entryType: "SYSTEMS",
-        highlights: [],
-        content: "",
-    },
-    {
-        slug: "compound-effects",
-        title: "The Power of Compound Effects",
-        year: "2024",
-        thesis: "Small actions compounding over time produce results that feel impossible until the moment they become inevitable.",
-        entryType: "ENGINEERING",
-        highlights: [],
-        content: "",
-    },
-    {
-        slug: "what-2-years-in-tech-taught-me-about-scaling",
-        title: "What 2 Years in Tech Taught Me About Scaling",
-        year: "2025",
-        thesis: "Lessons on scaling, system design, and leadership from two years in tech — before the senior engineer title.",
-        entryType: "SCALING",
-        highlights: [],
-        content: "",
-    },
-    {
         slug: "the-network-will-lie-to-you",
         title: "Systems Notes #2 — The Network Will Lie to You",
         year: "2026",
@@ -289,6 +262,10 @@ The next layer of this discipline isn't relearning idempotency and circuit break
 
 The practical consequence reaches past agent design into the infrastructure underneath it. Cloud platforms have spent two decades becoming extremely good at operating fleets of deterministic software — autoscaling, orchestration, observability, all built for services that behave the same way twice. That substrate is now being asked to host something different: fleets of reasoning processes, not fleets of services. We already know how to operate fleets of software reliably. The open problem is learning to operate fleets of reasoning.
 
-Distributed systems gave us fifty years of answers for nodes that fail. AI engineering is the first discipline that has to answer for nodes that decide.`,
+Distributed systems gave us fifty years of answers for nodes that fail. AI engineering is the first discipline that has to answer for nodes that decide.
+
+---
+
+*I applied these failure-mode principles directly in the [GenAI Architecture Reviewer](/projects/genai-arch-reviewer/case-study) — a single-prompt system with 13 explicit rules that encodes the same discipline of naming failure modes before writing the system.*`,
     },
 ];

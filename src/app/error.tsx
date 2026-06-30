@@ -33,13 +33,13 @@ export default function Error({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={reset}
-                className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-full"
+                className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-sm"
               >
                 Try again
               </button>
               <Link
                 href="/"
-                className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-full"
+                className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-sm"
               >
                 Go home
               </Link>
