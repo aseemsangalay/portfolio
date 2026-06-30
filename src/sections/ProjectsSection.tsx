@@ -124,7 +124,7 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                                                 rel="noopener noreferrer"
                                                 className="text-[10px] font-bold uppercase tracking-widest text-[#888] hover:text-[#111] transition-colors"
                                             >
-                                                View Code &rarr;
+                                                GitHub &rarr;
                                             </a>
                                         )}
                                         {project.links.demo && (
@@ -134,8 +134,16 @@ export default function ProjectsSection({ data }: ProjectsSectionProps) {
                                                 rel="noopener noreferrer"
                                                 className="text-[10px] font-bold uppercase tracking-widest text-[#888] hover:text-[#111] transition-colors"
                                             >
-                                                Notes &rarr;
+                                                Live &rarr;
                                             </a>
+                                        )}
+                                        {project.links.caseStudy && (
+                                            <Link
+                                                href={project.links.caseStudy}
+                                                className="text-[10px] font-bold uppercase tracking-widest text-[#888] hover:text-[#111] transition-colors"
+                                            >
+                                                Case Study &rarr;
+                                            </Link>
                                         )}
                                     </div>
                                 </div>

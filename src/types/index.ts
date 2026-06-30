@@ -26,6 +26,7 @@ export interface Project extends BaseContent {
     links: {
         repo?: string;
         demo?: string;
+        caseStudy?: string;
     };
     image: string;
     featured: boolean;

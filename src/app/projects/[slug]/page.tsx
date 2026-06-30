@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-full"
                       >
-                        View Code
+                        GitHub
                       </a>
                     )}
                     {project.links.demo && (
@@ -147,6 +147,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       >
                         Live Demo
                       </a>
+                    )}
+                    {project.links.caseStudy && (
+                      <Link
+                        href={project.links.caseStudy}
+                        className="inline-flex items-center px-6 py-3 text-sm font-medium text-foreground bg-hairline hover:bg-accent hover:text-background transition-colors duration-300 rounded-full"
+                      >
+                        Case Study
+                      </Link>
                     )}
                   </div>
                 </section>
